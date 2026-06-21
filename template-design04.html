@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV_LOOM — The Engineer</title>
+  <meta name="description" content="The Engineer — a dark industrial blueprint portfolio template for CVLoom." />
+  <meta name="theme-color" content="#0a0c0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="dark"]{
+      --bg:#0a0c0f;
+      --surface:#111418;
+      --card:#181c22;
+      --accent:#f0a030;
+      --accent2:#3a8fbf;
+      --text:#d8e0e8;
+      --muted:#6888a0;
+      --border:rgba(56,120,180,0.15);
+      --line:rgba(58,143,191,0.05);
+      --shadow:0 14px 32px rgba(0,0,0,0.34);
+      --terminal:#0d1117;
+      --success:#4fd18f;
+      --danger:#d16a4f;
+      --hero1:linear-gradient(135deg,#0a0c0f 0%, #111821 55%, #102230 100%);
+      --hero2:linear-gradient(135deg,#0d1014 0%, #171d26 55%, #1a2530 100%);
+      --hero3:linear-gradient(135deg,#0b0e11 0%, #141820 55%, #1b222c 100%);
+      --grid-size:40px;
+      --radius:4px;
+      --container:1240px;
+      --hero-h:clamp(460px,58vw,620px);
+    }
+
+    [data-theme="light"]{
+      --bg:#f0f4f8;
+      --surface:#ffffff;
+      --card:#e4ecf4;
+      --accent:#c07010;
+      --accent2:#1a6090;
+      --text:#0c1820;
+      --muted:#405870;
+      --border:rgba(26,96,144,0.15);
+      --line:rgba(26,96,144,0.08);
+      --shadow:0 14px 28px rgba(15,34,52,0.08);
+      --terminal:#f7fbff;
+      --success:#1f8c54;
+      --danger:#a64e30;
+      --hero1:linear-gradient(135deg,#edf3f8 0%, #dfebf4 55%, #d2e1ee 100%);
+      --hero2:linear-gradient(135deg,#f1f5f8 0%, #e7edf5 55%, #dbe6ee 100%);
+      --hero3:linear-gradient(135deg,#f7f9fb 0%, #e3ebf2 55%, #d7e1ea 100%);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      font-family:"IBM Plex Sans",sans-serif;
+      background-color:var(--bg);
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size:var(--grid-size) var(--grid-size);
+      color:var(--text);
+      line-height:1.6;
+      transition:background-color .4s ease,color .4s ease;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(58,143,191,.04), transparent 20%),
+        radial-gradient(circle at top right, rgba(240,160,48,.06), transparent 24%);
+      z-index:-1;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea{font:inherit;color:inherit}
+    ul{list-style:none}
+    ::selection{background:rgba(240,160,48,.25)}
+    .skip-link{
+      position:absolute;left:-999px;top:10px;background:var(--accent);color:#111;padding:12px 16px;z-index:10001
+    }
+    .skip-link:focus{left:10px}
+    .container{width:min(calc(100% - 28px),var(--container));margin-inline:auto}
+    .section{
+      position:relative;
+      padding:clamp(72px,8vw,116px) 0;
+      content-visibility:auto;
+    }
+    .grid-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-left:3px solid var(--accent);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .mono{font-family:"IBM Plex Mono",monospace}
+    .heading{
+      font-family:"Rajdhani",sans-serif;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+    }
+
+    .loading-bar{
+      position:fixed;left:0;top:0;width:100%;height:3px;z-index:1100;background:rgba(58,143,191,.18);overflow:hidden
+    }
+    .loading-bar::after{
+      content:"";
+      position:absolute;left:0;top:0;height:100%;width:36%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      animation:loadAcross 2.2s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    @keyframes loadAcross{
+      0%{transform:translateX(-100%)}
+      100%{transform:translateX(320%)}
+    }
+
+    .site-header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(10,12,15,.92);
+      border-bottom:1px solid var(--accent2);
+      backdrop-filter:blur(8px);
+    }
+    [data-theme="light"] .site-header{background:rgba(240,244,248,.92)}
+    .nav{
+      display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;
+      min-height:74px;
+    }
+    .logo{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:1.15rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      color:var(--text);
+      white-space:nowrap;
+    }
+    .nav-links{
+      display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+      font-family:"IBM Plex Mono",monospace;
+      font-size:.78rem;
+      color:var(--muted);
+      text-transform:lowercase;
+    }
+    .nav-links a{
+      min-height:40px;display:inline-flex;align-items:center;padding:0 4px;
+      position:relative;
+    }
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:6px;height:1px;width:100%;
+      background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+    }
+    .nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .terminal-btn,.hire-btn,.menu-btn{
+      min-height:44px;border:1px solid var(--accent2);border-radius:4px;
+      display:inline-flex;align-items:center;justify-content:center;padding:0 14px;
+      font-family:"IBM Plex Mono",monospace;font-size:.76rem;
+      background:var(--surface);color:var(--text);
+      transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease;
+    }
+    .terminal-btn:hover,.hire-btn:hover,.menu-btn:hover{transform:translateY(-1px)}
+    .hire-btn{
+      border-color:var(--accent);
+      color:var(--accent);
+      font-weight:700;
+    }
+    .hire-btn:hover{background:var(--accent);color:#111}
+    .menu-btn{display:none;padding-inline:12px}
+
+    .mobile-menu{
+      position:fixed;inset:74px 0 0 0;z-index:1200;
+      background:var(--surface);border-top:1px solid var(--accent2);
+      display:grid;align-content:start;gap:0;padding:12px 14px;
+      transform:translateY(-16px);opacity:0;visibility:hidden;transition:.35s ease;
+    }
+    .mobile-menu.open{transform:translateY(0);opacity:1;visibility:visible}
+    .mobile-menu a{
+      min-height:54px;display:flex;align-items:center;
+      padding:0 10px;border-bottom:1px solid var(--border);
+      font-family:"IBM Plex Mono",monospace;text-transform:lowercase;color:var(--text)
+    }
+
+    .hero{
+      position:relative;
+      padding:26px 0 38px;
+    }
+    .hero-slider{
+      position:relative;
+      min-height:var(--hero-h);
+      overflow:hidden;
+      border:1px solid var(--accent2);
+      border-radius:4px;
+      background:var(--surface);
+      box-shadow:var(--shadow);
+    }
+    .hero-slide{
+      position:absolute;inset:0;
+      display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;
+      padding:clamp(22px,4vw,36px);
+      opacity:0;visibility:hidden;
+      transition:opacity .5s ease, visibility .5s ease;
+    }
+    .hero-slide.active{opacity:1;visibility:visible;z-index:2}
+    .hero-slide::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        var(--slide-bg);
+      background-size:40px 40px,40px 40px,cover;
+      z-index:-3;
+    }
+    .hero-slide::after{
+      content:"";
+      position:absolute;inset:-120% 0 auto 0;height:140%;
+      background:linear-gradient(180deg, transparent 0%, rgba(240,160,48,.18) 48%, transparent 52%);
+      animation:scanWipe 5.2s cubic-bezier(.16,1,.3,1) infinite;
+      z-index:-1;pointer-events:none;
+    }
+    @keyframes scanWipe{
+      0%{transform:translateY(0)}
+      45%{transform:translateY(190%)}
+      100%{transform:translateY(190%)}
+    }
+
+    .hero-copy{max-width:700px;position:relative;z-index:2}
+    .tech-label{
+      display:inline-flex;align-items:center;
+      font-family:"IBM Plex Mono",monospace;
+      font-size:.76rem;
+      color:var(--accent2);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:8px;
+    }
+    .hero-title{
+      font-family:"Rajdhani",sans-serif;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:clamp(3rem,8vw,6.2rem);
+      line-height:.88;
+      margin-bottom:14px;
+      max-width:10ch;
+      letter-spacing:.02em;
+    }
+    .hero-copy p{
+      color:var(--muted);
+      max-width:58ch;
+      margin-bottom:18px;
+      font-size:1rem;
+    }
+    .typing-terminal{
+      display:inline-flex;align-items:center;gap:8px;
+      min-height:48px;
+      padding:10px 14px;
+      background:var(--terminal);
+      border:1px solid var(--accent2);
+      border-left:3px solid var(--accent);
+      font-family:"IBM Plex Mono",monospace;
+      margin-bottom:18px;
+      box-shadow:inset 0 0 0 1px rgba(240,160,48,.06);
+    }
+    .typing-terminal .prompt{color:var(--accent)}
+    .typing-terminal .text::after{
+      content:"";
+      display:inline-block;width:10px;height:1.1em;border-right:2px solid var(--accent);margin-left:2px;
+      animation:blink .8s steps(1) infinite;vertical-align:-2px;
+    }
+    @keyframes blink{50%{opacity:0}}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+    .hero-btn{
+      min-height:46px;padding:0 18px;border-radius:4px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid var(--accent2);
+      font-family:"IBM Plex Mono",monospace;font-size:.76rem;text-transform:uppercase;
+      background:var(--surface);
+    }
+    .hero-btn.primary{background:var(--accent);color:#111;border-color:var(--accent)}
+    .hero-btn.secondary{background:transparent;color:var(--text)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px}
+    .hero-meta span{
+      min-height:34px;padding:0 12px;border:1px solid var(--border);
+      display:inline-flex;align-items:center;
+      font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted)
+    }
+
+    .hero-visual{
+      position:relative;
+      display:flex;align-items:center;justify-content:center;
+      min-height:100%;
+      padding-bottom:150px;
+    }
+    .portrait-shell{
+      position:relative;
+      width:min(100%,420px);
+      aspect-ratio:4/5;
+    }
+    .portrait-frame{
+      position:relative;
+      width:100%;height:100%;
+      background:var(--terminal);
+      border:1px solid var(--accent2);
+      overflow:hidden;
+      box-shadow:
+        0 0 10px rgba(240,160,48,.22),
+        0 0 30px rgba(240,160,48,.16),
+        0 0 60px rgba(240,160,48,.12);
+      animation:glowPulse 3s ease-in-out infinite;
+    }
+    @keyframes glowPulse{
+      0%,100%{
+        box-shadow:
+          0 0 10px rgba(240,160,48,.24),
+          0 0 30px rgba(240,160,48,.16),
+          0 0 60px rgba(240,160,48,.1);
+      }
+      50%{
+        box-shadow:
+          0 0 18px rgba(240,160,48,.34),
+          0 0 44px rgba(240,160,48,.22),
+          0 0 90px rgba(240,160,48,.14);
+      }
+    }
+    .portrait-frame::before,.portrait-frame::after{
+      content:"";position:absolute;width:18px;height:18px;border-color:var(--accent);border-style:solid;z-index:3
+    }
+    .portrait-frame::before{top:10px;left:10px;border-width:2px 0 0 2px}
+    .portrait-frame::after{right:10px;bottom:10px;border-width:0 2px 2px 0}
+    .portrait{
+      position:absolute;inset:0;opacity:0;transition:opacity 1s ease;
+    }
+    .portrait.active{opacity:1}
+    .portrait img{
+      width:100%;height:100%;object-fit:cover;
+      filter:saturate(.84) contrast(1.06);
+    }
+    .portrait-overlay{
+      position:absolute;inset:auto 0 0 0;height:34%;
+      background:linear-gradient(180deg, transparent, rgba(10,12,15,.78));
+      z-index:2;
+    }
+    [data-theme="light"] .portrait-overlay{background:linear-gradient(180deg, transparent, rgba(240,244,248,.78))}
+    .available-badge{
+      position:absolute;top:12px;left:12px;z-index:5;
+      display:inline-flex;align-items:center;gap:8px;
+      min-height:38px;padding:0 12px;border:1px solid var(--accent2);
+      background:rgba(10,12,15,.9);font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--text)
+    }
+    [data-theme="light"] .available-badge{background:rgba(255,255,255,.94)}
+    .available-dot{
+      width:9px;height:9px;border-radius:50%;background:var(--success);
+      box-shadow:0 0 0 0 rgba(79,209,143,.6);animation:pulseDot 1.8s infinite;
+    }
+    @keyframes pulseDot{
+      0%{box-shadow:0 0 0 0 rgba(79,209,143,.6)}
+      70%{box-shadow:0 0 0 10px rgba(79,209,143,0)}
+      100%{box-shadow:0 0 0 0 rgba(79,209,143,0)}
+    }
+
+    .project-strip-wrap{
+      position:absolute;left:16px;right:16px;bottom:16px;z-index:6;
+    }
+    .project-strip{
+      overflow:hidden;background:rgba(17,20,24,.82);
+      border:1px solid var(--accent2);
+      padding:12px;
+    }
+    [data-theme="light"] .project-strip{background:rgba(255,255,255,.82)}
+    .project-track{
+      display:flex;gap:14px;width:max-content;animation:stripMove 28s linear infinite;
+    }
+    .project-strip:hover .project-track{animation-play-state:paused}
+    @keyframes stripMove{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+    .project-thumb{
+      width:162px;flex:0 0 162px;cursor:pointer;
+      transition:transform .25s ease;
+    }
+    .project-thumb:hover{transform:translateY(-4px)}
+    .thumb-frame{
+      position:relative;
+      border:1px solid var(--accent2);
+      background:var(--surface);
+      overflow:hidden;
+    }
+    .thumb-frame::before,.thumb-frame::after{
+      content:"";position:absolute;width:14px;height:14px;border-style:solid;border-color:var(--accent);z-index:2
+    }
+    .thumb-frame::before{top:8px;left:8px;border-width:2px 0 0 2px}
+    .thumb-frame::after{right:8px;bottom:8px;border-width:0 2px 2px 0}
+    .thumb-frame img,.project-placeholder{
+      width:100%;height:100px;object-fit:cover;
+    }
+    .project-placeholder{
+      display:flex;align-items:center;justify-content:center;padding:12px;
+      border:1px dashed var(--accent2);color:var(--muted);text-align:center;
+      font-family:"IBM Plex Mono",monospace;font-size:.72rem;background:var(--terminal)
+    }
+    .thumb-frame figcaption{
+      padding:10px 10px 12px;
+      font-family:"IBM Plex Mono",monospace;
+      font-size:.68rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--text);
+      border-top:1px solid var(--border);
+    }
+
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+    .section-title-group{
+      display:grid;gap:8px;
+    }
+    .section-bracket{
+      display:inline-flex;align-items:center;gap:10px;
+      color:var(--accent2);
+      font-family:"IBM Plex Mono",monospace;
+      text-transform:uppercase;font-size:.76rem;
+      letter-spacing:.08em;
+    }
+    .section-bracket .br{
+      font-size:1.8rem;line-height:1;color:var(--accent2);
+      font-family:"Rajdhani",sans-serif;
+    }
+    .section-title{
+      font-family:"Rajdhani",sans-serif;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:clamp(2rem,4.6vw,4rem);
+      line-height:.9;
+      letter-spacing:.02em;
+    }
+
+    .about-grid{
+      display:grid;grid-template-columns:1.08fr .92fr;gap:18px;
+    }
+    .about-card,.summary-card,.skills-card,.education-card,.experience-card,.projects-card,.cert-card,.testimonial-card,.refs-card,.achievement-card,.contact-card{
+      padding:22px;
+    }
+    .about-card p,.summary-card p,.experience-card p,.projects-card p,.contact-card p{color:var(--muted)}
+    .stat-strip{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;
+    }
+    .mini-stat{
+      border:1px solid var(--border);padding:14px;background:var(--surface)
+    }
+    .mini-stat strong{
+      display:block;font-family:"IBM Plex Mono",monospace;font-size:1.3rem;color:var(--accent)
+    }
+    .mini-stat span{
+      font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted)
+    }
+
+    .skills-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    }
+    .skill-group{display:grid;gap:16px}
+    .skill-group h3{
+      font-family:"Rajdhani",sans-serif;font-size:2rem;text-transform:uppercase;line-height:1;color:var(--text)
+    }
+    .skill-row{display:grid;gap:8px}
+    .skill-meta{
+      display:flex;justify-content:space-between;gap:12px;align-items:center;
+      font-family:"IBM Plex Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--muted)
+    }
+    .measure{
+      position:relative;height:18px;border:1px solid var(--border);overflow:hidden;
+      background:
+        repeating-linear-gradient(90deg,
+          transparent 0,
+          transparent calc(10% - 1px),
+          rgba(58,143,191,.25) calc(10% - 1px),
+          rgba(58,143,191,.25) 10%);
+    }
+    .measure-fill{
+      position:absolute;left:0;top:0;bottom:0;
+      background:linear-gradient(90deg,var(--accent), color-mix(in srgb, var(--accent2) 45%, var(--accent)));
+    }
+
+    .education-wrap{
+      position:relative;
+      display:grid;gap:16px;
+      padding-left:24px;
+    }
+    .education-wrap::before{
+      content:"";position:absolute;left:6px;top:0;bottom:0;width:1px;background:var(--accent2)
+    }
+    .edu-item{
+      position:relative;
+      padding:18px 18px 18px 22px;
+    }
+    .edu-item::before{
+      content:"";position:absolute;left:-24px;top:24px;width:13px;height:13px;border-radius:50%;
+      background:var(--accent);border:2px solid var(--bg)
+    }
+    .edu-item h3{
+      font-family:"Rajdhani",sans-serif;font-size:1.8rem;text-transform:uppercase;line-height:1
+    }
+    .edu-year,.edu-grade{
+      font-family:"IBM Plex Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--accent2)
+    }
+    .edu-item p{color:var(--muted);margin:10px 0 12px}
+    .edu-bar{
+      height:12px;border:1px solid var(--border);position:relative;background:var(--surface)
+    }
+    .edu-bar span{
+      position:absolute;left:0;top:0;bottom:0;background:var(--accent2)
+    }
+
+    .experience-list{display:grid;gap:16px}
+    .exp-item{
+      padding:20px;
+      display:grid;gap:12px;
+    }
+    .exp-top{
+      display:flex;justify-content:space-between;gap:16px;align-items:start;flex-wrap:wrap
+    }
+    .exp-title{
+      font-family:"Rajdhani",sans-serif;font-size:2rem;text-transform:uppercase;line-height:1
+    }
+    .exp-time{
+      font-family:"IBM Plex Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--accent2)
+    }
+    .status-badge{
+      min-height:30px;padding:0 10px;border:1px solid currentColor;
+      display:inline-flex;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase
+    }
+    .status-badge.active{color:var(--success)}
+    .status-badge.complete{color:var(--accent)}
+    .exp-item ul{display:grid;gap:8px;color:var(--muted)}
+    .exp-item li::before{content:"▸ ";color:var(--accent)}
+
+    .projects-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    }
+    .spec-card{
+      padding:18px;display:grid;gap:14px;
+      background:
+        linear-gradient(rgba(58,143,191,.03), rgba(58,143,191,.03)),
+        var(--card);
+    }
+    .spec-card img{
+      width:100%;height:180px;object-fit:cover;border:1px solid var(--border)
+    }
+    .spec-head h3{
+      font-family:"Rajdhani",sans-serif;font-size:1.8rem;text-transform:uppercase;line-height:1
+    }
+    .spec-table{
+      display:grid;gap:8px;
+      font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase;color:var(--muted)
+    }
+    .spec-row{
+      display:grid;grid-template-columns:92px 1fr;gap:10px;padding-top:8px;border-top:1px solid var(--border)
+    }
+
+    .cert-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    }
+    .cert-preview{
+      aspect-ratio:3/4;
+      padding:16px;
+      display:grid;align-content:space-between;gap:14px;
+      background:linear-gradient(180deg,rgba(58,143,191,.03),transparent), var(--surface);
+      border:1px solid var(--accent2);
+    }
+    .cert-preview .cert-top{
+      display:flex;justify-content:space-between;gap:12px;align-items:start
+    }
+    .cert-preview h3{
+      font-family:"Rajdhani",sans-serif;font-size:1.5rem;text-transform:uppercase;line-height:1
+    }
+    .cert-badge{
+      min-width:54px;min-height:54px;border:1px solid var(--accent);display:grid;place-items:center;
+      font-family:"IBM Plex Mono",monospace;color:var(--accent)
+    }
+    .cert-lines{display:grid;gap:8px}
+    .cert-lines span{
+      height:10px;background:linear-gradient(90deg,var(--border), transparent 85%)
+    }
+    .cert-meta{
+      font-family:"IBM Plex Mono",monospace;font-size:.7rem;text-transform:uppercase;color:var(--muted);display:grid;gap:6px
+    }
+
+    .testimonial-wrap{display:grid;gap:14px}
+    .quote-block{
+      padding:22px;
+      border:1px solid var(--accent2);
+      border-left:3px solid var(--accent);
+      background:var(--surface);
+    }
+    .quote-block blockquote{
+      font-family:"Rajdhani",sans-serif;font-size:2rem;text-transform:uppercase;line-height:1;margin-bottom:10px
+    }
+    .quote-block p{color:var(--muted)}
+    .quote-meta{
+      margin-top:12px;
+      font-family:"IBM Plex Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--accent2)
+    }
+
+    .refs-table-wrap{
+      overflow:auto;border:1px solid var(--accent2)
+    }
+    .refs-table{
+      min-width:720px;background:var(--surface)
+    }
+    .refs-table th,.refs-table td{
+      padding:14px 12px;border-bottom:1px solid var(--border);text-align:left
+    }
+    .refs-table th{
+      font-family:"IBM Plex Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--accent)
+    }
+    .refs-table td{
+      font-size:.95rem;color:var(--text)
+    }
+    .refs-table td small{
+      font-family:"IBM Plex Mono",monospace;color:var(--muted);font-size:.72rem
+    }
+
+    .achievement-list{
+      display:grid;gap:14px;
+    }
+    .ach-item{
+      display:grid;grid-template-columns:110px 1fr;gap:16px;
+      padding:18px;
+      align-items:start;
+    }
+    .ach-no{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:clamp(2rem,4vw,3.2rem);
+      color:var(--accent);
+      line-height:1;
+    }
+    .ach-item h3{
+      font-family:"Rajdhani",sans-serif;font-size:1.8rem;text-transform:uppercase;line-height:1
+    }
+    .ach-item p{color:var(--muted);margin-top:8px}
+
+    .contact-grid{
+      display:grid;grid-template-columns:1.02fr .98fr;gap:18px;
+    }
+    .contact-links{display:grid;gap:12px;margin-top:18px}
+    .contact-link{
+      min-height:54px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+      border:1px solid var(--border);background:var(--surface);font-family:"IBM Plex Mono",monospace;font-size:.75rem;text-transform:uppercase
+    }
+    .contact-link span{color:var(--accent2)}
+    .contact-form{display:grid;gap:12px}
+    .contact-form label{display:grid;gap:8px;color:var(--muted)}
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:14px 16px;background:var(--surface);color:var(--text);
+      border:1px solid var(--accent2);border-left:3px solid var(--accent);border-radius:0;outline:none
+    }
+    .contact-form textarea{min-height:150px;resize:vertical}
+    .submit-btn{
+      width:max-content;min-height:46px;padding:0 18px;
+      background:var(--accent);color:#111;border:1px solid var(--accent);
+      font-family:"IBM Plex Mono",monospace;text-transform:uppercase
+    }
+
+    .site-footer{
+      padding:28px 0 110px;
+    }
+    .footer-bar{
+      display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      padding-top:18px;border-top:1px solid var(--accent2);
+      font-family:"IBM Plex Mono",monospace;font-size:.74rem;text-transform:uppercase;color:var(--muted)
+    }
+
+    .reveal{
+      opacity:0;transform:translateY(28px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in-view{opacity:1;transform:none}
+
+    .fab-stack{
+      position:fixed;right:24px;bottom:24px;z-index:9999;
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .fab{
+      position:relative;width:52px;height:52px;border-radius:50%;
+      display:grid;place-items:center;border:1px solid rgba(0,0,0,.25);
+      box-shadow:0 6px 18px rgba(0,0,0,.24);
+      transform:translateX(90px);
+      animation:fabIn .7s cubic-bezier(.16,1,.3,1) forwards;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .fab.whatsapp{background:#25D366;animation-delay:1s}
+    .fab.call{background:var(--accent);animation-delay:1.12s}
+    .fab.email{background:var(--accent2);animation-delay:1.24s}
+    @keyframes fabIn{to{transform:translateX(0)}}
+    .fab:hover{transform:scale(1.15)}
+    .fab.whatsapp:hover{box-shadow:0 4px 20px rgba(37,211,102,0.5)}
+    .fab.call:hover{box-shadow:0 4px 20px color-mix(in srgb, var(--accent) 55%, transparent)}
+    .fab.email:hover{box-shadow:0 4px 20px color-mix(in srgb, var(--accent2) 55%, transparent)}
+    .fab svg{width:22px;height:22px}
+    .fab.whatsapp svg,.fab.email svg{color:#fff}
+    .fab.call svg{color:#1a1207}
+    .fab::after{
+      content:attr(data-tooltip);
+      position:absolute;right:64px;top:50%;transform:translateY(-50%) translateX(10px);
+      white-space:nowrap;background:var(--terminal);color:var(--text);
+      border:1px solid var(--accent2);padding:8px 10px;font-size:.72rem;font-family:"IBM Plex Mono",monospace;
+      opacity:0;visibility:hidden;transition:.25s ease;pointer-events:none
+    }
+    .fab:hover::after{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
+    .fab.whatsapp{
+      animation-name:fabIn, waPulse;
+      animation-duration:.7s,4s;
+      animation-delay:1s,2.4s;
+      animation-fill-mode:forwards,both;
+      animation-iteration-count:1,infinite;
+    }
+    @keyframes waPulse{
+      0%,84%,100%{box-shadow:0 6px 18px rgba(0,0,0,.24),0 0 0 0 rgba(37,211,102,0)}
+      90%{box-shadow:0 6px 18px rgba(0,0,0,.24),0 0 0 0 rgba(37,211,102,.42)}
+      97%{box-shadow:0 6px 18px rgba(0,0,0,.24),0 0 0 16px rgba(37,211,102,0)}
+    }
+
+    .mobile-bottom-bar{
+      display:none;
+      position:fixed;left:0;right:0;bottom:0;z-index:9998;
+      background:var(--surface);border-top:1px solid var(--accent2);
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+      grid-template-columns:repeat(3,1fr);gap:10px;
+    }
+    .mobile-bottom-bar a{
+      min-height:52px;border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      font-family:"IBM Plex Mono",monospace;font-size:.68rem;text-transform:uppercase;
+      background:var(--card)
+    }
+    .mobile-bottom-bar .wa{color:#25D366}
+    .mobile-bottom-bar .call{color:var(--accent)}
+    .mobile-bottom-bar .email{color:var(--accent2)}
+    .mobile-bottom-bar svg{width:18px;height:18px}
+
+    .lightbox{
+      position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10001;
+      display:grid;place-items:center;padding:24px;
+      opacity:0;visibility:hidden;transition:opacity .3s ease, visibility .3s ease;
+    }
+    .lightbox.open{opacity:1;visibility:visible}
+    .lightbox img{
+      max-width:min(92vw,1100px);max-height:78vh;border:1px solid var(--accent2);background:#000
+    }
+    .lightbox-close{
+      position:absolute;top:20px;right:20px;width:48px;height:48px;
+      display:grid;place-items:center;border:1px solid var(--accent2);background:var(--surface);color:var(--text)
+    }
+
+    @media (max-width:1080px){
+      .hero-slide,
+      .about-grid,
+      .skills-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+      .projects-grid,.cert-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-visual{padding-bottom:160px}
+    }
+
+    @media (max-width:860px){
+      .nav-links,.hire-btn{display:none}
+      .menu-btn{display:inline-flex}
+      .nav{grid-template-columns:auto 1fr auto}
+      .projects-grid,.cert-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:767px){
+      .fab-stack{display:none}
+      .mobile-bottom-bar{display:grid}
+      .hero-slider{min-height:780px}
+      .hero-slide{padding:20px}
+      .hero-visual{padding-bottom:166px}
+      .project-strip-wrap{left:12px;right:12px;bottom:12px}
+      .project-thumb{width:146px;flex-basis:146px}
+      .thumb-frame img,.project-placeholder{height:92px}
+      .ach-item{grid-template-columns:1fr}
+      .stat-strip{grid-template-columns:1fr}
+      .footer-bar{padding-bottom:8px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+      }
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="loading-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#top" class="logo">CV_LOOM</a>
+
+        <div class="nav-links">
+          <a href="#about">// about</a>
+          <a href="#skills">// skills</a>
+          <a href="#education">// education</a>
+          <a href="#experience">// experience</a>
+          <a href="#projects">// projects</a>
+          <a href="#contact">// contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="terminal-btn" data-theme-toggle aria-label="Toggle theme">[DARK]</button>
+          <a href="#contact" class="hire-btn">[HIRE_ME]</a>
+          <button class="menu-btn" id="menuBtn" aria-label="Open menu">[MENU]</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#about">// about</a>
+    <a href="#skills">// skills</a>
+    <a href="#education">// education</a>
+    <a href="#experience">// experience</a>
+    <a href="#projects">// projects</a>
+    <a href="#certifications">// certifications</a>
+    <a href="#contact">// contact</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-slider" id="heroSlider">
+          <article class="hero-slide active" style="--slide-bg:var(--hero1)">
+            <div class="hero-copy">
+              <span class="tech-label mono">// ENGINEER.MODE_01</span>
+              <h1 class="hero-title">Precise systems. Reliable execution.</h1>
+              <div class="typing-terminal">
+                <span class="prompt">&gt;</span>
+                <span class="text" id="typingText">NDT Supervisor_</span>
+              </div>
+              <p>Designed for engineers, inspectors, mechanical professionals, civil specialists, and technical consultants who need a portfolio that feels structured, disciplined, and deployment-ready.</p>
+              <div class="hero-actions">
+                <a href="#projects" class="hero-btn primary">View Projects</a>
+                <a href="#contact" class="hero-btn secondary">Request Consultation</a>
+              </div>
+              <div class="hero-meta">
+                <span class="mono">Blueprint grid</span>
+                <span class="mono">Technical profile</span>
+                <span class="mono">Industrial UI</span>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="portrait-shell">
+                <div class="available-badge"><span class="available-dot"></span> 🟢 Available</div>
+                <div class="portrait-frame">
+                  <!-- PORTRAIT IMAGE 1,2,3: replace src with actual photos -->
+                  <div class="portrait active">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Portrait image 1" width="900" height="1125" loading="eager">
+                  </div>
+                  <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" alt="Portrait image 2" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80" alt="Portrait image 3" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait-overlay"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-strip-wrap">
+              <div class="project-strip">
+                <div class="project-track">
+                  <!-- PROJECT STRIP IMAGE: replace src="" with actual photo path -->
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb">
+                    <figure class="thumb-frame">
+                      <div class="project-placeholder">📸 Add Work Photo</div>
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb">
+                    <figure class="thumb-frame">
+                      <div class="project-placeholder">📸 Add Work Photo</div>
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide" style="--slide-bg:var(--hero2)">
+            <div class="hero-copy">
+              <span class="tech-label mono">// ENGINEER.MODE_02</span>
+              <h2 class="hero-title">Structured communication for technical trust.</h2>
+              <div class="typing-terminal">
+                <span class="prompt">&gt;</span>
+                <span class="text">Mechanical Inspector_</span>
+              </div>
+              <p>A restrained blueprint interface helps experience, certifications, fieldwork, and project credibility read clearly without decorative noise.</p>
+              <div class="hero-actions">
+                <a href="#experience" class="hero-btn primary">Review Experience</a>
+                <a href="#education" class="hero-btn secondary">See Education</a>
+              </div>
+              <div class="hero-meta">
+                <span class="mono">CAD-inspired layout</span>
+                <span class="mono">Sharp cards</span>
+                <span class="mono">Terminal labels</span>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="portrait-shell">
+                <div class="available-badge"><span class="available-dot"></span> 🟢 Available</div>
+                <div class="portrait-frame">
+                  <div class="portrait active">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Portrait image second slide" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80" alt="Portrait image second slide alternate" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Portrait image second slide third" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait-overlay"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-strip-wrap">
+              <div class="project-strip">
+                <div class="project-track">
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb">
+                    <figure class="thumb-frame">
+                      <div class="project-placeholder">📸 Add Work Photo</div>
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb">
+                    <figure class="thumb-frame">
+                      <div class="project-placeholder">📸 Add Work Photo</div>
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide" style="--slide-bg:var(--hero3)">
+            <div class="hero-copy">
+              <span class="tech-label mono">// ENGINEER.MODE_03</span>
+              <h2 class="hero-title">Technical proof, organised for decisions.</h2>
+              <div class="typing-terminal">
+                <span class="prompt">&gt;</span>
+                <span class="text">Civil Site Engineer_</span>
+              </div>
+              <p>From credentials to references, every block is tuned to look like a controlled technical interface—reliable, clean, and easy to evaluate.</p>
+              <div class="hero-actions">
+                <a href="#certifications" class="hero-btn primary">Open Certifications</a>
+                <a href="#contact" class="hero-btn secondary">Contact Now</a>
+              </div>
+              <div class="hero-meta">
+                <span class="mono">Spec sheet cards</span>
+                <span class="mono">Table references</span>
+                <span class="mono">Industrial precision</span>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="portrait-shell">
+                <div class="available-badge"><span class="available-dot"></span> 🟢 Available</div>
+                <div class="portrait-frame">
+                  <div class="portrait active">
+                    <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=900&q=80" alt="Portrait image third slide" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80" alt="Portrait image third slide alternate" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Portrait image third slide third" width="900" height="1125" loading="lazy">
+                  </div>
+                  <div class="portrait-overlay"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-strip-wrap">
+              <div class="project-strip">
+                <div class="project-track">
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb">
+                    <figure class="thumb-frame">
+                      <div class="project-placeholder">📸 Add Work Photo</div>
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb">
+                    <figure class="thumb-frame">
+                      <div class="project-placeholder">📸 Add Work Photo</div>
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                  <div class="project-thumb" data-full="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80">
+                    <figure class="thumb-frame">
+                      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                      <figcaption>Project Name</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // SECTION.01 <span class="br">]</span></span>
+            <h2 class="section-title">Profile overview</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card grid-card">
+            <span class="tech-label mono">// PROFILE.SUMMARY</span>
+            <h3 class="heading" style="font-size:2rem;line-height:1;margin-bottom:12px;">Reliable technical communication built into the layout.</h3>
+            <p>This template is designed for engineers, NDT personnel, supervisors, inspectors, site professionals, and technical specialists who want their online profile to feel methodical and credible.</p>
+            <p>It uses blueprint grid lines, monochrome surfaces, engineering typography, and specification-style cards to make experience easy to verify and trust.</p>
+
+            <div class="stat-strip">
+              <div class="mini-stat">
+                <strong>12+</strong>
+                <span>Field phases</span>
+              </div>
+              <div class="mini-stat">
+                <strong>24/7</strong>
+                <span>Site readiness</span>
+              </div>
+              <div class="mini-stat">
+                <strong>100%</strong>
+                <span>Documentation focus</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="summary-card grid-card">
+            <span class="tech-label mono">// OPERATING.MODE</span>
+            <h3 class="heading" style="font-size:1.9rem;line-height:1;margin-bottom:10px;">Built like a technical dashboard, presented like a personal portfolio.</h3>
+            <p>Use this for project engineers, QA/QC personnel, plant professionals, fabrication inspectors, structural engineers, and disciplined technical roles where clarity matters more than decoration.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // SKILLS.02 <span class="br">]</span></span>
+            <h2 class="section-title">Technical capability matrix</h2>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skills-card grid-card">
+            <span class="tech-label mono">// GROUP_A : TECHNICAL</span>
+            <div class="skill-group">
+              <h3>Technical</h3>
+
+              <div class="skill-row">
+                <div class="skill-meta"><span>Inspection & QA/QC</span><span>94%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:94%"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>NDT Coordination</span><span>91%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:91%"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>Site Supervision</span><span>88%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:88%"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>Technical Reporting</span><span>96%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:96%"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="skills-card grid-card">
+            <span class="tech-label mono">// GROUP_B : SOFTWARE</span>
+            <div class="skill-group">
+              <h3>Software</h3>
+
+              <div class="skill-row">
+                <div class="skill-meta"><span>AutoCAD / Draft Review</span><span>82%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:82%"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>MS Excel / Logs</span><span>93%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:93%"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>Document Control Systems</span><span>86%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:86%"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-meta"><span>Client Reporting Tools</span><span>84%</span></div>
+                <div class="measure"><div class="measure-fill" style="width:84%"></div></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // EDUCATION.03 <span class="br">]</span></span>
+            <h2 class="section-title">Training & academic path</h2>
+          </div>
+        </div>
+
+        <div class="education-card grid-card">
+          <div class="education-wrap">
+            <article class="edu-item">
+              <span class="edu-year">2016 — 2020</span>
+              <h3>B.Tech / Mechanical Engineering</h3>
+              <p>Core training in mechanics, materials, manufacturing systems, technical drawing, and applied engineering principles.</p>
+              <div class="edu-grade">Completion Level: 82%</div>
+              <div class="edu-bar"><span style="width:82%"></span></div>
+            </article>
+
+            <article class="edu-item">
+              <span class="edu-year">2020 — 2021</span>
+              <h3>Inspection & Quality Modules</h3>
+              <p>Specialized post-study focus on QA/QC workflow, inspection procedures, documentation discipline, and site readiness.</p>
+              <div class="edu-grade">Completion Level: 90%</div>
+              <div class="edu-bar"><span style="width:90%"></span></div>
+            </article>
+
+            <article class="edu-item">
+              <span class="edu-year">2021 — 2022</span>
+              <h3>NDT / Technical Certification Prep</h3>
+              <p>Practical alignment with technical codes, test coordination, reporting sequences, safety process, and workflow control.</p>
+              <div class="edu-grade">Completion Level: 87%</div>
+              <div class="edu-bar"><span style="width:87%"></span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // EXPERIENCE.04 <span class="br">]</span></span>
+            <h2 class="section-title">Execution history</h2>
+          </div>
+        </div>
+
+        <div class="experience-card grid-card">
+          <div class="experience-list">
+            <article class="exp-item grid-card">
+              <div class="exp-top">
+                <div>
+                  <span class="exp-time">2025 — Present</span>
+                  <h3 class="exp-title">Senior NDT / QA Supervisor</h3>
+                </div>
+                <span class="status-badge active">Status: Active</span>
+              </div>
+              <p>Responsible for inspection coordination, procedure compliance, client documentation, and field reporting across active engineering work packages.</p>
+              <ul>
+                <li>Managed site-level reporting cycles with accuracy and traceability.</li>
+                <li>Coordinated inspection readiness between operations, quality teams, and client representatives.</li>
+              </ul>
+            </article>
+
+            <article class="exp-item grid-card">
+              <div class="exp-top">
+                <div>
+                  <span class="exp-time">2023 — 2025</span>
+                  <h3 class="exp-title">Mechanical / Site Engineer</h3>
+                </div>
+                <span class="status-badge complete">Status: Completed</span>
+              </div>
+              <p>Handled execution checks, technical records, measurement alignment, and supervision support for structured field operations.</p>
+              <ul>
+                <li>Prepared site observations, activity updates, and verification logs.</li>
+                <li>Maintained coordination across contractors, supervisors, and reporting teams.</li>
+              </ul>
+            </article>
+
+            <article class="exp-item grid-card">
+              <div class="exp-top">
+                <div>
+                  <span class="exp-time">2021 — 2023</span>
+                  <h3 class="exp-title">Junior QA / Technical Support</h3>
+                </div>
+                <span class="status-badge complete">Status: Completed</span>
+              </div>
+              <p>Supported inspection documentation, status tracking, drawing review coordination, and process verification under senior supervision.</p>
+              <ul>
+                <li>Built strong habits in structured documentation and technical communication.</li>
+                <li>Gained hands-on familiarity with workflow discipline and quality expectations.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // PROJECTS.05 <span class="br">]</span></span>
+            <h2 class="section-title">Project data sheets</h2>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="spec-card grid-card">
+            <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1000&q=80" alt="Project preview one" width="1000" height="700" loading="lazy">
+            <div class="spec-head">
+              <h3>Plant Shutdown Support</h3>
+              <p>Inspection, reporting, and execution tracking support for critical maintenance operations.</p>
+            </div>
+            <div class="spec-table">
+              <div class="spec-row"><span>Type</span><span>Industrial Maintenance</span></div>
+              <div class="spec-row"><span>Role</span><span>QA / NDT Coordination</span></div>
+              <div class="spec-row"><span>Scope</span><span>Field Verification + Logs</span></div>
+            </div>
+          </article>
+
+          <article class="spec-card grid-card">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=80" alt="Project preview two" width="1000" height="700" loading="lazy">
+            <div class="spec-head">
+              <h3>Fabrication Yard Review</h3>
+              <p>Technical inspection control with documentation review and status reporting aligned to quality requirements.</p>
+            </div>
+            <div class="spec-table">
+              <div class="spec-row"><span>Type</span><span>Fabrication</span></div>
+              <div class="spec-row"><span>Role</span><span>Mechanical Inspector</span></div>
+              <div class="spec-row"><span>Scope</span><span>Quality Tracking</span></div>
+            </div>
+          </article>
+
+          <article class="spec-card grid-card">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Project preview three" width="1000" height="700" loading="lazy">
+            <div class="spec-head">
+              <h3>Site Readiness Package</h3>
+              <p>Focused on technical readiness, field coordination, inspection scheduling, and reporting chain clarity.</p>
+            </div>
+            <div class="spec-table">
+              <div class="spec-row"><span>Type</span><span>Site Execution</span></div>
+              <div class="spec-row"><span>Role</span><span>Site Engineer</span></div>
+              <div class="spec-row"><span>Scope</span><span>Readiness + Records</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="certifications">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // CERTIFICATIONS.06 <span class="br">]</span></span>
+            <h2 class="section-title">Credential previews</h2>
+          </div>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-preview grid-card cert-card">
+            <div class="cert-top">
+              <div>
+                <span class="tech-label mono">// CERT_01</span>
+                <h3>NDT Level Certification</h3>
+              </div>
+              <div class="cert-badge">A1</div>
+            </div>
+            <div class="cert-lines">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="cert-meta">
+              <div>Authority: Approved Institute</div>
+              <div>Validity: 2026</div>
+              <div>ID: CERT-0142</div>
+            </div>
+          </article>
+
+          <article class="cert-preview grid-card cert-card">
+            <div class="cert-top">
+              <div>
+                <span class="tech-label mono">// CERT_02</span>
+                <h3>QA/QC Documentation</h3>
+              </div>
+              <div class="cert-badge">B2</div>
+            </div>
+            <div class="cert-lines">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="cert-meta">
+              <div>Authority: Industry Board</div>
+              <div>Validity: 2025</div>
+              <div>ID: DOC-1038</div>
+            </div>
+          </article>
+
+          <article class="cert-preview grid-card cert-card">
+            <div class="cert-top">
+              <div>
+                <span class="tech-label mono">// CERT_03</span>
+                <h3>Safety & Site Compliance</h3>
+              </div>
+              <div class="cert-badge">C4</div>
+            </div>
+            <div class="cert-lines">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="cert-meta">
+              <div>Authority: Site Training Body</div>
+              <div>Validity: 2026</div>
+              <div>ID: SAFE-2241</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // TESTIMONIALS.07 <span class="br">]</span></span>
+            <h2 class="section-title">Technical endorsements</h2>
+          </div>
+        </div>
+
+        <div class="testimonial-wrap">
+          <article class="quote-block">
+            <blockquote>Consistently precise under schedule pressure.</blockquote>
+            <p>Documentation quality, coordination discipline, and technical communication remained reliable throughout active site operations.</p>
+            <div class="quote-meta">Project Manager // Mechanical Division</div>
+          </article>
+
+          <article class="quote-block">
+            <blockquote>Strong reporting habits and dependable field follow-through.</blockquote>
+            <p>Delivered clear updates, maintained structured records, and supported inspection readiness with minimal supervision.</p>
+            <div class="quote-meta">QA Lead // Plant Operations</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="references">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // REFERENCES.08 <span class="br">]</span></span>
+            <h2 class="section-title">Reference registry</h2>
+          </div>
+        </div>
+
+        <div class="refs-card grid-card">
+          <div class="refs-table-wrap">
+            <table class="refs-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Organization</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ashish Verma<br><small>REF.01</small></td>
+                  <td>Project Manager</td>
+                  <td>Industrial Services Pvt. Ltd.</td>
+                  <td>+91 XXXXX XXXXX</td>
+                </tr>
+                <tr>
+                  <td>Neha Sinha<br><small>REF.02</small></td>
+                  <td>QA Lead</td>
+                  <td>Process & Inspection Group</td>
+                  <td>neha@example.com</td>
+                </tr>
+                <tr>
+                  <td>Rakesh Nair<br><small>REF.03</small></td>
+                  <td>Site Coordinator</td>
+                  <td>Engineering Field Unit</td>
+                  <td>+91 XXXXX XXXXX</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="achievements">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // ACHIEVEMENTS.09 <span class="br">]</span></span>
+            <h2 class="section-title">Performance highlights</h2>
+          </div>
+        </div>
+
+        <div class="achievement-list">
+          <article class="ach-item grid-card achievement-card">
+            <div class="ach-no mono">01</div>
+            <div>
+              <h3>Supported critical inspection workflows across multiple active packages.</h3>
+              <p>Handled technical reporting, readiness communication, and status verification with a process-driven approach.</p>
+            </div>
+          </article>
+
+          <article class="ach-item grid-card achievement-card">
+            <div class="ach-no mono">02</div>
+            <div>
+              <h3>Maintained consistent document quality during high-pressure field execution.</h3>
+              <p>Ensured logs, status records, and communication outputs remained accurate and audit-friendly.</p>
+            </div>
+          </article>
+
+          <article class="ach-item grid-card achievement-card">
+            <div class="ach-no mono">03</div>
+            <div>
+              <h3>Contributed to smoother coordination between site, quality, and client teams.</h3>
+              <p>Improved clarity of updates and reduced ambiguity during active engineering operations.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-group">
+            <span class="section-bracket"><span class="br">[</span> // CONTACT.10 <span class="br">]</span></span>
+            <h2 class="section-title">Request technical discussion</h2>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card grid-card">
+            <span class="tech-label mono">// COMMUNICATION.CHANNELS</span>
+            <h3 class="heading" style="font-size:2rem;line-height:1;margin-bottom:12px;">Available for project roles, inspections, site coordination, and technical support.</h3>
+            <p>Use this block for employers, recruiters, project managers, or clients who need immediate access to contact details in a clean technical format.</p>
+
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:your@email.com"><span>Email</span><strong>your@email.com</strong></a>
+              <a class="contact-link" href="tel:+91XXXXXXXXXX"><span>Call</span><strong>+91 XXXXX XXXXX</strong></a>
+              <a class="contact-link" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Immediate connect</strong></a>
+            </div>
+          </article>
+
+          <section class="contact-card grid-card">
+            <span class="tech-label mono">// QUICK.BRIEF</span>
+            <form class="contact-form">
+              <label>
+                Full Name
+                <input type="text" placeholder="Enter name">
+              </label>
+              <label>
+                Email Address
+                <input type="email" placeholder="Enter email">
+              </label>
+              <label>
+                Requirement
+                <textarea placeholder="Enter role, project scope, or technical requirement"></textarea>
+              </label>
+              <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bar">
+        <span>CV_LOOM // THE ENGINEER</span>
+        <span>DARK INDUSTRIAL BLUEPRINT</span>
+        <span>TECHNICAL PORTFOLIO TEMPLATE</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab-stack" aria-label="Quick actions">
+    <a class="fab whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" data-tooltip="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.94A9.86 9.86 0 0 0 12.01 2C6.5 2 2.02 6.48 2.02 11.99c0 1.76.46 3.48 1.33 5L2 22l5.14-1.34a9.9 9.9 0 0 0 4.86 1.24h.01c5.51 0 9.99-4.48 9.99-10 0-2.67-1.04-5.18-2.95-7.06Zm-7.04 15.27h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.05.8.81-2.98-.2-.31a8.22 8.22 0 0 1-1.26-4.39c0-4.53 3.68-8.22 8.22-8.22 2.2 0 4.26.85 5.82 2.41a8.18 8.18 0 0 1 2.4 5.82c0 4.54-3.69 8.22-8.23 8.22Zm4.51-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.56.13-.17.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04s.88 2.37 1 2.53c.12.17 1.73 2.64 4.19 3.7.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg>
+    </a>
+    <a class="fab call" href="tel:+91XXXXXXXXXX" data-tooltip="Call Me" aria-label="Call Me">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.06 9.94a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <a class="fab email" href="mailto:your@email.com" data-tooltip="Send Email" aria-label="Send Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 7-10 7L2 7"/></svg>
+    </a>
+  </div>
+
+  <div class="mobile-bottom-bar" aria-label="Mobile quick actions">
+    <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="wa" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.94A9.86 9.86 0 0 0 12.01 2C6.5 2 2.02 6.48 2.02 11.99c0 1.76.46 3.48 1.33 5L2 22l5.14-1.34a9.9 9.9 0 0 0 4.86 1.24h.01c5.51 0 9.99-4.48 9.99-10 0-2.67-1.04-5.18-2.95-7.06Zm-7.04 15.27h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.05.8.81-2.98-.2-.31a8.22 8.22 0 0 1-1.26-4.39c0-4.53 3.68-8.22 8.22-8.22 2.2 0 4.26.85 5.82 2.41a8.18 8.18 0 0 1 2.4 5.82c0 4.54-3.69 8.22-8.23 8.22Z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+91XXXXXXXXXX" class="call" aria-label="Call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.06 9.94a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call</span>
+    </a>
+    <a href="mailto:your@email.com" class="email" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 7-10 7L2 7"/></svg>
+      <span>Email</span>
+    </a>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">✕</button>
+    <img src="" alt="Expanded project preview" id="lightboxImage">
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const body = document.body;
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+    function applyTheme(mode){
+      body.setAttribute('data-theme', mode);
+      root.setAttribute('data-theme', mode);
+      themeToggle.textContent = mode === 'dark' ? '[DARK]' : '[LIGHT]';
+    }
+    applyTheme(theme);
+
+    themeToggle?.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      applyTheme(theme);
+    });
+
+    const slides = [...document.querySelectorAll('.hero-slide')];
+    let slideIndex = 0;
+    setInterval(() => {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 5200);
+
+    document.querySelectorAll('.portrait-frame').forEach(frame => {
+      const portraits = [...frame.querySelectorAll('.portrait')];
+      let active = 0;
+      setInterval(() => {
+        portraits[active].classList.remove('active');
+        active = (active + 1) % portraits.length;
+        portraits[active].classList.add('active');
+      }, 4000);
+    });
+
+    const typingEl = document.getElementById('typingText');
+    const words = [
+      'NDT Supervisor_',
+      'Mechanical Inspector_',
+      'Civil Site Engineer_'
+    ];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop(){
+      const current = words[wordIndex];
+      typingEl.textContent = deleting ? current.slice(0, charIndex--) : current.slice(0, charIndex++);
+      let speed = deleting ? 32 : 54;
+
+      if(!deleting && charIndex === current.length + 1){
+        deleting = true;
+        speed = 900;
+      }
+      if(deleting && charIndex < 0){
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        charIndex = 0;
+        speed = 250;
+      }
+      setTimeout(typeLoop, speed);
+    }
+    typeLoop();
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.14});
+    reveals.forEach(el => revealObserver.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      mobileMenu.setAttribute('aria-hidden', mobileMenu.classList.contains('open') ? 'false' : 'true');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    document.querySelectorAll('.project-thumb[data-full]').forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImage.src = item.dataset.full;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+      });
+    });
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImage.src = '';
+    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) closeLightbox();
+    });
+    window.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeLightbox();
+    });
+
+    document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const original = btn.textContent;
+      btn.textContent = 'Sent';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        e.target.reset();
+      }, 2200);
+    });
+
+    setTimeout(() => {
+      document.querySelector('.loading-bar')?.remove();
+    }, 2300);
+  </script>
+</body>
+</html>
+

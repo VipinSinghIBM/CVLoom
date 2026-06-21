@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Pricing — CVLoom | Career Branding Plans</title>
+  <meta name="description" content="Transparent, value-packed pricing for resume design, LinkedIn branding, portfolio, and full career identity packages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__box">
+    <div class="preloader__logo">CV<span>Loom</span></div>
+    <div class="preloader__track"><div class="preloader__fill"></div></div>
+  </div>
+</div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER -->
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="CVLoom home">
+      <span class="brand-logo" aria-hidden="true">
+        <img src="assets/logo.svg" alt="CVLoom logo"
+             style="width:100%;height:100%;object-fit:contain;border-radius:.85rem;"
+             onerror="this.style.display='none';this.parentElement.textContent='CV'">
+      </span>
+      <span>
+        <span class="brand-name">CVLoom</span>
+        <span class="brand-sub">Career Identity Studio</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="templates.html">Templates</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-btn" data-theme-btn aria-label="Toggle theme">
+        <span class="theme-icon sun"></span>
+      </button>
+      <a class="btn btn--primary btn--sm" href="contact.html">Start Project</a>
+      <button class="hamburger" data-hamburger aria-expanded="false" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mobile-nav-wrap" data-mobile-nav>
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="templates.html">Templates</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn--primary" href="contact.html">Start Project</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- FLOATING BUTTONS -->
+<div class="fab-stack" aria-label="Quick contact">
+  <a class="fab fab--wa" href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+  </a>
+  <a class="fab fab--call" href="tel:+919000000000" aria-label="Call us" data-label="Call us">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72 2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+  <a class="fab fab--mail" href="mailto:hello@cvloom.in" aria-label="Email us" data-label="Email us">
+    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+</div>
+
+<main id="main">
+
+<!-- ══ PAGE HERO ══════════════════════════════════════ -->
+<section class="section page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <div data-reveal="up"><span class="kicker">✦ Simple, honest pricing</span></div>
+      <h1 data-reveal="up" data-delay="100">
+        Premium quality.<br><span class="grad-text">Fair price.</span>
+      </h1>
+      <p data-reveal="up" data-delay="200">
+        No hidden charges. No upsells. Pick your plan and we get to work within the hour.
+      </p>
+      <!-- TOGGLE -->
+      <div class="price-toggle-wrap" data-reveal="up" data-delay="300">
+        <span class="price-toggle-label" id="lblMonthly">Individual</span>
+        <button class="price-toggle" id="priceToggle" aria-pressed="false" aria-label="Toggle pricing type">
+          <span class="price-toggle__thumb"></span>
+        </button>
+        <span class="price-toggle-label" id="lblAnnual">Bundle <span class="price-save-badge">Save 30%</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING CARDS ══════════════════════════════════ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="price-card" data-reveal="up">
+        <div class="price-card__head">
+          <div class="price-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <h3>Starter</h3>
+          <p>For fresh graduates and first-time job seekers.</p>
+        </div>
+        <div class="price-card__price">
+          <span class="price-currency">₹</span>
+          <span class="price-amount" data-ind="999" data-bun="699">999</span>
+          <span class="price-period">/ one-time</span>
+        </div>
+        <ul class="price-features">
+          <li class="feat--yes">1 Resume (ATS-optimised)</li>
+          <li class="feat--yes">1 Template choice</li>
+          <li class="feat--yes">Word + PDF formats</li>
+          <li class="feat--yes">2 free revisions</li>
+          <li class="feat--yes">24-hour delivery</li>
+          <li class="feat--no">LinkedIn branding</li>
+          <li class="feat--no">Cover letter</li>
+          <li class="feat--no">1-on-1 consulting</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="contact.html">Get Starter</a>
+      </div>
+
+      <!-- PRO — FEATURED -->
+      <div class="price-card price-card--featured" data-reveal="up" data-delay="120">
+        <div class="price-card__popular">Most Popular</div>
+        <div class="price-card__head">
+          <div class="price-card__icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Pro</h3>
+          <p>For active job seekers who want to stand out everywhere.</p>
+        </div>
+        <div class="price-card__price">
+          <span class="price-currency">₹</span>
+          <span class="price-amount" data-ind="2499" data-bun="1749">2499</span>
+          <span class="price-period">/ one-time</span>
+        </div>
+        <ul class="price-features">
+          <li class="feat--yes">1 Resume (ATS-optimised)</li>
+          <li class="feat--yes">Full LinkedIn branding</li>
+          <li class="feat--yes">1 Cover letter</li>
+          <li class="feat--yes">Word + PDF formats</li>
+          <li class="feat--yes">Unlimited revisions</li>
+          <li class="feat--yes">24-hour delivery</li>
+          <li class="feat--yes">LinkedIn banner design</li>
+          <li class="feat--no">1-on-1 consulting</li>
+        </ul>
+        <a class="btn btn--primary btn--block" href="contact.html">Get Pro</a>
+      </div>
+
+      <!-- ELITE -->
+      <div class="price-card" data-reveal="up" data-delay="240">
+        <div class="price-card__head">
+          <div class="price-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+          </div>
+          <h3>Elite</h3>
+          <p>Full career identity overhaul for serious professionals.</p>
+        </div>
+        <div class="price-card__price">
+          <span class="price-currency">₹</span>
+          <span class="price-amount" data-ind="4999" data-bun="3499">4999</span>
+          <span class="price-period">/ one-time</span>
+        </div>
+        <ul class="price-features">
+          <li class="feat--yes">Resume + LinkedIn + Portfolio</li>
+          <li class="feat--yes">2 Cover letters</li>
+          <li class="feat--yes">Personal brand kit</li>
+          <li class="feat--yes">Executive bio (long + short)</li>
+          <li class="feat--yes">Unlimited revisions</li>
+          <li class="feat--yes">Priority 12-hr delivery</li>
+          <li class="feat--yes">1-on-1 consulting session</li>
+          <li class="feat--yes">30-day post-delivery support</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="contact.html">Get Elite</a>
+      </div>
+
+    </div>
+
+    <!-- GUARANTEE NOTE -->
+    <div class="price-guarantee" data-reveal="fade">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <p><strong>100% satisfaction guarantee.</strong> If you're not happy with the first draft, we revise for free — no questions asked.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ À LA CARTE ═════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd" data-reveal="up">
+      <span class="kicker">Need just one thing?</span>
+      <h2>À la carte services.</h2>
+      <p>Pick exactly what you need — no bundle required.</p>
+    </div>
+    <div class="alacarte-grid" data-reveal="up">
+
+      <div class="alacarte-card">
+        <div class="alacarte-left">
+          <div class="alacarte-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div>
+            <div class="alacarte-name">Resume Design</div>
+            <div class="alacarte-desc">ATS-ready · 24hr delivery</div>
+          </div>
+        </div>
+        <div class="alacarte-price">₹999 <span>onwards</span></div>
+        <a class="btn btn--ghost btn--sm" href="contact.html">Order</a>
+      </div>
+
+      <div class="alacarte-card">
+        <div class="alacarte-left">
+          <div class="alacarte-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="alacarte-name">LinkedIn Branding</div>
+            <div class="alacarte-desc">Full profile + banner · 48hr</div>
+          </div>
+        </div>
+        <div class="alacarte-price">₹1499 <span>onwards</span></div>
+        <a class="btn btn--ghost btn--sm" href="contact.html">Order</a>
+      </div>
+
+      <div class="alacarte-card">
+        <div class="alacarte-left">
+          <div class="alacarte-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div>
+            <div class="alacarte-name">Portfolio Design</div>
+            <div class="alacarte-desc">Custom layout · 48hr delivery</div>
+          </div>
+        </div>
+        <div class="alacarte-price">₹1999 <span>onwards</span></div>
+        <a class="btn btn--ghost btn--sm" href="contact.html">Order</a>
+      </div>
+
+      <div class="alacarte-card">
+        <div class="alacarte-left">
+          <div class="alacarte-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div>
+            <div class="alacarte-name">Cover Letter</div>
+            <div class="alacarte-desc">Role-specific · Same-day</div>
+          </div>
+        </div>
+        <div class="alacarte-price">₹499 <span>onwards</span></div>
+        <a class="btn btn--ghost btn--sm" href="contact.html">Order</a>
+      </div>
+
+      <div class="alacarte-card">
+        <div class="alacarte-left">
+          <div class="alacarte-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+          </div>
+          <div>
+            <div class="alacarte-name">Personal Branding</div>
+            <div class="alacarte-desc">Full brand kit · 5–7 days</div>
+          </div>
+        </div>
+        <div class="alacarte-price">₹2999 <span>onwards</span></div>
+        <a class="btn btn--ghost btn--sm" href="contact.html">Order</a>
+      </div>
+
+      <div class="alacarte-card">
+        <div class="alacarte-left">
+          <div class="alacarte-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <div class="alacarte-name">Career Consulting</div>
+            <div class="alacarte-desc">60-min 1-on-1 session</div>
+          </div>
+        </div>
+        <div class="alacarte-price">₹799 <span>/ session</span></div>
+        <a class="btn btn--ghost btn--sm" href="contact.html">Book</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════ -->
+<section class="section" style="background:rgba(99,91,255,.03)">
+  <div class="container">
+    <div class="section-hd" data-reveal="up">
+      <span class="kicker">Got questions?</span>
+      <h2>Frequently asked.</h2>
+    </div>
+    <div class="faq-grid" data-reveal="up">
+
+      <details class="faq-item">
+        <summary class="faq-q">How long does delivery take?
+          <span class="faq-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </summary>
+        <div class="faq-a">Most resumes are delivered within 24 hours. LinkedIn branding and portfolios take 48 hours. Full Elite bundles are delivered in 7–10 days. Rush delivery is available on request.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What if I'm not happy with the result?
+          <span class="faq-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </summary>
+        <div class="faq-a">We offer unlimited free revisions on Pro and Elite plans until you're 100% satisfied. Starter plan includes 2 free revisions. Your satisfaction is guaranteed.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What formats will I receive?
+          <span class="faq-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </summary>
+        <div class="faq-a">All resumes are delivered in Word (.docx) and PDF formats. LinkedIn banners come as PNG and Canva-editable files. Portfolio designs are delivered as PDF and optionally as web-ready HTML.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Do you work with all industries?
+          <span class="faq-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </summary>
+        <div class="faq-a">Yes — we've worked with professionals across 20+ industries including tech, finance, marketing, healthcare, NGO, education, law, design, and more. Every deliverable is customised for your target role.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How do I place an order?
+          <span class="faq-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </summary>
+        <div class="faq-a">Click "Get Started" or message us on WhatsApp. Fill a short form with your details and goals. We'll confirm your order and start within the hour.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Can I upgrade my plan later?
+          <span class="faq-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </summary>
+        <div class="faq-a">Yes — you can upgrade from Starter to Pro or Elite at any time. We'll apply a credit for what you've already paid, so you only pay the difference.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner" data-reveal="up">
+      <div>
+        <span class="kicker">Ready to invest in your career?</span>
+        <h2>Start today. Land faster.</h2>
+        <p>Join 500+ professionals who upgraded their career presence with CVLoom and started getting noticed.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn--primary" href="contact.html">Get started now</a>
+        <a class="btn btn--ghost" href="reviews.html">Read reviews first</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-logo" aria-hidden="true">
+            <img src="assets/logo.svg" alt="CVLoom logo"
+                 style="width:100%;height:100%;object-fit:contain;border-radius:.85rem;"
+                 onerror="this.style.display='none';this.parentElement.textContent='CV'">
+          </span>
+          <span>
+            <span class="brand-name">CVLoom</span>
+            <span class="brand-sub">Career Identity Studio</span>
+          </span>
+        </a>
+        <p>Premium career branding for professionals who want to be seen, chosen, and remembered.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="about.html">About</a>
+        <a href="templates.html">Templates</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@cvloom.in">hello@cvloom.in</a>
+        <a href="tel:+919000000000">+91 90000 00000</a>
+        <a href="https://wa.me/919000000000" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#">Lucknow, UP, India</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="color:var(--c-muted);font-size:var(--t-sm);margin-bottom:.5rem">Get templates and career branding tips.</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Your email">
+          <button class="btn btn--primary btn--sm" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CVLoom. All rights reserved.</span>
+      <span>Designed for world-class career branding.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

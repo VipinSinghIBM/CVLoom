@@ -1,0 +1,22 @@
+name: Deploy CVLoom to Serverbyt
+
+on:
+  push:
+    branches:
+      - main  # Agar aapki branch master hai toh yahan master likhein
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploying Code
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: 📂 Sync files to Serverbyt
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.cvloom.online
+        username: cvloom.online@ssh.gb.stackcp.com
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /public_html/

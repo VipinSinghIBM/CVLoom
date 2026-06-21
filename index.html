@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CVLoom — Premium Career Identity Studio</title>
+  <meta name="description" content="CVLoom crafts world-class resumes, LinkedIn profiles, portfolios, and personal branding for professionals who want to stand out.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__box">
+    <div class="preloader__logo">CV<span>Loom</span></div>
+    <div class="preloader__track"><div class="preloader__fill"></div></div>
+  </div>
+</div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER -->
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="CVLoom home">
+      <span class="brand-logo" aria-hidden="true">
+        <!-- ✅ LOGO IMAGE — replace assets/logo.svg with your file -->
+        <img src="assets/logo.svg" alt="CVLoom logo"
+             style="width:100%;height:100%;object-fit:contain;border-radius:.85rem;"
+             onerror="this.style.display='none';this.parentElement.textContent='CV'">
+      </span>
+      <span>
+        <span class="brand-name">CVLoom</span>
+        <span class="brand-sub">Career Identity Studio</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="templates.html">Templates</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-btn" data-theme-btn aria-label="Toggle theme">
+        <span class="theme-icon sun"></span>
+      </button>
+      <a class="btn btn--primary btn--sm" href="contact.html">Start Project</a>
+      <button class="hamburger" data-hamburger aria-expanded="false" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="mobile-nav-wrap" data-mobile-nav>
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="templates.html">Templates</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn--primary" href="contact.html">Start Project</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- FLOATING BUTTONS -->
+<div class="fab-stack" aria-label="Quick contact">
+  <a class="fab fab--wa" href="https://wa.me/918303616656" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+  </a>
+  <a class="fab fab--call" href="tel:+918303616656" aria-label="Call us" data-label="Call us">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72 2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 6.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+  <a class="fab fab--mail" href="mailto:infocvloom@gmail.com" aria-label="Email us" data-label="Email us">
+    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+</div>
+
+<main id="main">
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="hero section">
+  <div class="container">
+    <div class="hero__kicker" data-reveal="up">
+      <span class="kicker">✦ World-class career branding</span>
+    </div>
+    <h1 data-reveal="up" data-delay="100">
+      Your career deserves a<br><span class="grad-text">premium identity.</span>
+    </h1>
+    <p class="hero__sub" data-reveal="up" data-delay="200">
+      CVLoom crafts world-class resumes, LinkedIn profiles, and career branding for professionals who want to be seen, chosen, and remembered.
+    </p>
+    <div class="hero__actions" data-reveal="up" data-delay="300">
+      <a class="btn btn--primary" href="templates.html">Explore Templates</a>
+      <a class="btn btn--ghost" href="about.html">How we work &rarr;</a>
+    </div>
+    <div class="hero__trust" data-reveal="fade" data-delay="400">
+      <span class="trust-badge">✓ ATS-Optimised</span>
+      <span class="trust-badge">✓ 24hr Delivery</span>
+      <span class="trust-badge">✓ LinkedIn-ready</span>
+      <span class="trust-badge">✓ Global standards</span>
+      <span class="trust-badge">✓ Free revisions</span>
+    </div>
+
+    <!-- HERO SLIDER -->
+    <div class="hero-slider" data-reveal="up" data-delay="500">
+      <div class="hero-slider__track" data-slider-track>
+
+        <!-- SLIDE 1 -->
+        <div class="hero-slide">
+          <div class="slide-content">
+            <span class="kicker" style="margin-bottom:1rem;display:inline-flex">Resume Design</span>
+            <h2>Stand out before the interview starts.</h2>
+            <p>Premium layouts recruiters scan in under 7 seconds — and remember.</p>
+            <a class="btn btn--primary btn--sm" href="templates.html">View resume templates</a>
+          </div>
+          <div class="slide-visual">
+            <!-- ✅ IMAGE SPACE — assets/slide-resume.jpg -->
+            <img src="assets/slide-resume.jpg" alt="Resume template preview"
+                 class="slide-visual-img" onerror="this.style.display='none'">
+            <div class="slide-img-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Resume preview<br><small style="opacity:.6">assets/slide-resume.jpg</small></span>
+            </div>
+            <div class="slide-visual__inner"></div>
+            <div class="slide-visual__bar slide-visual__bar--top"></div>
+            <div class="slide-visual__bar slide-visual__bar--mid"></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="hero-slide">
+          <div class="slide-content">
+            <span class="kicker" style="margin-bottom:1rem;display:inline-flex">LinkedIn Branding</span>
+            <h2>Turn your profile into a talent magnet.</h2>
+            <p>Strategic positioning, keyword-rich copy, and a headline that gets recruiters to click.</p>
+            <a class="btn btn--primary btn--sm" href="services.html">LinkedIn services</a>
+          </div>
+          <div class="slide-visual">
+            <!-- ✅ IMAGE SPACE — assets/slide-linkedin.jpg -->
+            <img src="assets/slide-linkedin.jpg" alt="LinkedIn branding preview"
+                 class="slide-visual-img" onerror="this.style.display='none'">
+            <div class="slide-img-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>LinkedIn preview<br><small style="opacity:.6">assets/slide-linkedin.jpg</small></span>
+            </div>
+            <div class="slide-visual__inner" style="background:linear-gradient(180deg,rgba(0,212,255,.18),rgba(99,91,255,.08))"></div>
+            <div class="slide-visual__bar slide-visual__bar--top"></div>
+            <div class="slide-visual__bar slide-visual__bar--mid"></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="hero-slide">
+          <div class="slide-content">
+            <span class="kicker" style="margin-bottom:1rem;display:inline-flex">Portfolio Presence</span>
+            <h2>Show your work. Make them feel it.</h2>
+            <p>Clean portfolio layouts that present your projects with impact, clarity, and visual authority.</p>
+            <a class="btn btn--primary btn--sm" href="templates.html">Portfolio templates</a>
+          </div>
+          <div class="slide-visual">
+            <!-- ✅ IMAGE SPACE — assets/slide-portfolio.jpg -->
+            <img src="assets/slide-portfolio.jpg" alt="Portfolio preview"
+                 class="slide-visual-img" onerror="this.style.display='none'">
+            <div class="slide-img-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Portfolio preview<br><small style="opacity:.6">assets/slide-portfolio.jpg</small></span>
+            </div>
+            <div class="slide-visual__inner" style="background:linear-gradient(180deg,rgba(255,107,157,.15),rgba(99,91,255,.08))"></div>
+            <div class="slide-visual__bar slide-visual__bar--top"></div>
+            <div class="slide-visual__bar slide-visual__bar--mid"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="slider-nav" role="tablist">
+        <button class="slider-dot active" data-dot="0" role="tab" aria-label="Slide 1"></button>
+        <button class="slider-dot" data-dot="1" role="tab" aria-label="Slide 2"></button>
+        <button class="slider-dot" data-dot="2" role="tab" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" aria-hidden="true">
+    <span class="marquee-item"><span class="marquee-dot"></span>Resume Design</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>LinkedIn Branding</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Portfolio Layout</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Cover Letter</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Personal Branding</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ATS Optimisation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Executive Bio</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Career Consulting</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Resume Design</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>LinkedIn Branding</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Portfolio Layout</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Cover Letter</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Personal Branding</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>ATS Optimisation</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Executive Bio</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Career Consulting</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card" data-reveal="up">
+        <strong data-counter="500" data-suffix="+">0</strong>
+        <span>Professionals served globally</span>
+      </div>
+      <div class="stat-card" data-reveal="up" data-delay="100">
+        <strong data-counter="98" data-suffix="%">0</strong>
+        <span>Client satisfaction rate</span>
+      </div>
+      <div class="stat-card" data-reveal="up" data-delay="200">
+        <strong data-counter="120" data-suffix="+">0</strong>
+        <span>Premium templates ready</span>
+      </div>
+      <div class="stat-card" data-reveal="up" data-delay="300">
+        <strong data-counter="24" data-suffix="hr">0</strong>
+        <span>Average delivery time</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd" data-reveal="up">
+      <span class="kicker">What we do</span>
+      <h2>Every tool a serious professional needs.</h2>
+      <p>From the first draft to the final polish — we build career assets that perform in the real world.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card" data-reveal="up">
+        <div class="service-icon">
+          <!-- ✅ Optional icon image — assets/icon-resume.svg -->
+          <img src="assets/icon-resume.svg" alt="" aria-hidden="true"
+               style="width:1.4rem;height:1.4rem;object-fit:contain"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Resume Design</h3>
+        <p>ATS-ready, recruiter-friendly layouts that match your target role and industry standard.</p>
+        <a class="service-link" href="services.html">Learn more <span>&rarr;</span></a>
+      </article>
+      <article class="service-card" data-reveal="up" data-delay="100">
+        <div class="service-icon">
+          <img src="assets/icon-linkedin.svg" alt="" aria-hidden="true"
+               style="width:1.4rem;height:1.4rem;object-fit:contain"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <h3>LinkedIn Branding</h3>
+        <p>Strategic positioning, banner design, summary rewrite, and keyword optimisation that attract recruiters.</p>
+        <a class="service-link" href="services.html">Learn more <span>&rarr;</span></a>
+      </article>
+      <article class="service-card" data-reveal="up" data-delay="200">
+        <div class="service-icon">
+          <img src="assets/icon-portfolio.svg" alt="" aria-hidden="true"
+               style="width:1.4rem;height:1.4rem;object-fit:contain"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3>Portfolio Presence</h3>
+        <p>Clean, modern portfolio layouts that present your work with visual authority and clarity.</p>
+        <a class="service-link" href="services.html">Learn more <span>&rarr;</span></a>
+      </article>
+      <article class="service-card" data-reveal="up">
+        <div class="service-icon">
+          <img src="assets/icon-cover.svg" alt="" aria-hidden="true"
+               style="width:1.4rem;height:1.4rem;object-fit:contain"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>Cover Letter</h3>
+        <p>Persuasive, role-specific cover letters that complement your resume and open doors.</p>
+        <a class="service-link" href="services.html">Learn more <span>&rarr;</span></a>
+      </article>
+      <article class="service-card" data-reveal="up" data-delay="100">
+        <div class="service-icon">
+          <img src="assets/icon-brand.svg" alt="" aria-hidden="true"
+               style="width:1.4rem;height:1.4rem;object-fit:contain"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+        </div>
+        <h3>Personal Branding</h3>
+        <p>Define your professional identity — tone, story, message, and visual system that sets you apart.</p>
+        <a class="service-link" href="services.html">Learn more <span>&rarr;</span></a>
+      </article>
+      <article class="service-card" data-reveal="up" data-delay="200">
+        <div class="service-icon">
+          <img src="assets/icon-consult.svg" alt="" aria-hidden="true"
+               style="width:1.4rem;height:1.4rem;object-fit:contain"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg style="display:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Career Consulting</h3>
+        <p>1-on-1 guidance on job strategy, industry positioning, and career direction that actually works.</p>
+        <a class="service-link" href="services.html">Learn more <span>&rarr;</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATE GALLERY -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd" data-reveal="up">
+      <span class="kicker">Template gallery</span>
+      <h2>Pick a layout. Make it yours.</h2>
+      <p>Every template is designed for clarity, recruiter attention, and ATS compatibility.</p>
+    </div>
+    <div class="filter-bar" data-reveal="up">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="resume">Resume</button>
+      <button class="filter-chip" data-filter="linkedin">LinkedIn</button>
+      <button class="filter-chip" data-filter="portfolio">Portfolio</button>
+      <button class="filter-chip" data-filter="executive">Executive</button>
+    </div>
+    <div class="template-grid">
+      <article class="tpl-card" data-tpl="resume" data-reveal="up">
+        <div class="tpl-preview">
+          <!-- ✅ IMAGE SPACE — assets/tpl-classic-pro.jpg -->
+          <img src="assets/tpl-classic-pro.jpg" alt="Classic Pro" onerror="this.style.display='none'">
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-meta"><span class="tpl-tag">Resume</span><span class="tpl-tag">ATS</span></div>
+          <h3>Classic Pro</h3>
+          <p>Clean two-column layout perfect for mid-level corporate roles.</p>
+          <a class="btn btn--ghost btn--sm" href="contact.html">Get this template</a>
+        </div>
+      </article>
+      <article class="tpl-card" data-tpl="resume executive" data-reveal="up" data-delay="100">
+        <div class="tpl-preview tpl-preview--exec">
+          <!-- ✅ IMAGE SPACE — assets/tpl-executive-edge.jpg -->
+          <img src="assets/tpl-executive-edge.jpg" alt="Executive Edge" onerror="this.style.display='none'">
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-meta"><span class="tpl-tag">Executive</span><span class="tpl-tag">Senior</span></div>
+          <h3>Executive Edge</h3>
+          <p>Bold sidebar layout designed for C-suite and senior leadership roles.</p>
+          <a class="btn btn--ghost btn--sm" href="contact.html">Get this template</a>
+        </div>
+      </article>
+      <article class="tpl-card" data-tpl="portfolio" data-reveal="up" data-delay="200">
+        <div class="tpl-preview tpl-preview--portfolio">
+          <!-- ✅ IMAGE SPACE — assets/tpl-portfolio-studio.jpg -->
+          <img src="assets/tpl-portfolio-studio.jpg" alt="Portfolio Studio" onerror="this.style.display='none'">
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-meta"><span class="tpl-tag">Portfolio</span><span class="tpl-tag">Creative</span></div>
+          <h3>Portfolio Studio</h3>
+          <p>Visual-first layout for designers, developers, and creative professionals.</p>
+          <a class="btn btn--ghost btn--sm" href="contact.html">Get this template</a>
+        </div>
+      </article>
+      <article class="tpl-card" data-tpl="linkedin" data-reveal="up">
+        <div class="tpl-preview tpl-preview--linkedin">
+          <!-- ✅ IMAGE SPACE — assets/tpl-linkedin-max.jpg -->
+          <img src="assets/tpl-linkedin-max.jpg" alt="LinkedIn Max" onerror="this.style.display='none'">
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-meta"><span class="tpl-tag">LinkedIn</span><span class="tpl-tag">Branding</span></div>
+          <h3>LinkedIn Max</h3>
+          <p>Full LinkedIn brand kit — banner, headline, summary, and featured section.</p>
+          <a class="btn btn--ghost btn--sm" href="contact.html">Get this template</a>
+        </div>
+      </article>
+      <article class="tpl-card" data-tpl="resume" data-reveal="up" data-delay="100">
+        <div class="tpl-preview">
+          <!-- ✅ IMAGE SPACE — assets/tpl-minimal-sharp.jpg -->
+          <img src="assets/tpl-minimal-sharp.jpg" alt="Minimal Sharp" onerror="this.style.display='none'">
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-meta"><span class="tpl-tag">Resume</span><span class="tpl-tag">Minimal</span></div>
+          <h3>Minimal Sharp</h3>
+          <p>Ultra-clean single column for tech, finance, and consulting roles.</p>
+          <a class="btn btn--ghost btn--sm" href="contact.html">Get this template</a>
+        </div>
+      </article>
+      <article class="tpl-card" data-tpl="portfolio executive" data-reveal="up" data-delay="200">
+        <div class="tpl-preview tpl-preview--exec">
+          <!-- ✅ IMAGE SPACE — assets/tpl-authority-board.jpg -->
+          <img src="assets/tpl-authority-board.jpg" alt="Authority Board" onerror="this.style.display='none'">
+        </div>
+        <div class="tpl-body">
+          <div class="tpl-meta"><span class="tpl-tag">Portfolio</span><span class="tpl-tag">Executive</span></div>
+          <h3>Authority Board</h3>
+          <p>Personal website-style layout for thought leaders and senior experts.</p>
+          <a class="btn btn--ghost btn--sm" href="contact.html">Get this template</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd" data-reveal="up">
+      <span class="kicker">How it works</span>
+      <h2>Simple process. Premium result.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card" data-reveal="up">
+        <div class="process-num">01</div>
+        <h3>Share your info</h3>
+        <p>Fill a short form with your experience, role, and goals. We handle the rest.</p>
+      </div>
+      <div class="process-card" data-reveal="up" data-delay="100">
+        <div class="process-num">02</div>
+        <h3>We design & write</h3>
+        <p>Our team crafts your resume, profile, or brand kit using proven frameworks.</p>
+      </div>
+      <div class="process-card" data-reveal="up" data-delay="200">
+        <div class="process-num">03</div>
+        <h3>Review & refine</h3>
+        <p>You review the draft. We revise until it's exactly right — no extra charge.</p>
+      </div>
+      <div class="process-card" data-reveal="up" data-delay="300">
+        <div class="process-num">04</div>
+        <h3>Launch & land</h3>
+        <p>Download your final files in all formats and start applying with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd" data-reveal="up">
+      <span class="kicker">Reviews</span>
+      <h2>People who chose to look premium.</h2>
+    </div>
+  </div>
+  <div class="review-track-wrap" data-reveal="fade">
+    <div class="review-track">
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"My resume went from invisible to getting 3 interview calls in the first week."</p>
+        <div class="review-author">
+          <div class="avatar-ring">
+            <!-- ✅ IMAGE SPACE — assets/review-ak.jpg -->
+            <img src="assets/review-ak.jpg" alt="Arjun Kapoor"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="avatar-inner" style="display:none">AK</div>
+          </div>
+          <div><div class="review-name">Arjun Kapoor</div><div class="review-role">Software Engineer · Bangalore</div></div>
+        </div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"Within a month, recruiters from top MNCs started reaching out. Absolutely worth it."</p>
+        <div class="review-author">
+          <div class="avatar-ring">
+            <!-- ✅ IMAGE SPACE — assets/review-ps.jpg -->
+            <img src="assets/review-ps.jpg" alt="Priya Sharma"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="avatar-inner" style="display:none">PS</div>
+          </div>
+          <div><div class="review-name">Priya Sharma</div><div class="review-role">Marketing Manager · Delhi</div></div>
+        </div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"The portfolio template made my work look 10x more professional."</p>
+        <div class="review-author">
+          <div class="avatar-ring">
+            <img src="assets/review-rv.jpg" alt="Rohit Verma"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="avatar-inner" style="display:none">RV</div>
+          </div>
+          <div><div class="review-name">Rohit Verma</div><div class="review-role">Graphic Designer · Pune</div></div>
+        </div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"Fast delivery, amazing quality, understood exactly what I needed."</p>
+        <div class="review-author">
+          <div class="avatar-ring">
+            <img src="assets/review-ns.jpg" alt="Neha Singh"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="avatar-inner" style="display:none">NS</div>
+          </div>
+          <div><div class="review-name">Neha Singh</div><div class="review-role">HR Executive · Mumbai</div></div>
+        </div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"My executive profile now looks as good as the role I am applying for."</p>
+        <div class="review-author">
+          <div class="avatar-ring">
+            <img src="assets/review-vk.jpg" alt="Vikram Kumar"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="avatar-inner" style="display:none">VK</div>
+          </div>
+          <div><div class="review-name">Vikram Kumar</div><div class="review-role">Operations Director · Hyderabad</div></div>
+        </div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"CVLoom rewrote my cover letter and I got a callback within 3 days."</p>
+        <div class="review-author">
+          <div class="avatar-ring">
+            <img src="assets/review-sa.jpg" alt="Sneha Agarwal"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="avatar-inner" style="display:none">SA</div>
+          </div>
+          <div><div class="review-name">Sneha Agarwal</div><div class="review-role">Finance Analyst · Noida</div></div>
+        </div>
+      </article>
+      <!-- duplicate for seamless scroll -->
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"My resume went from invisible to getting 3 interview calls in the first week."</p>
+        <div class="review-author"><div class="avatar-ring"><div class="avatar-inner">AK</div></div><div><div class="review-name">Arjun Kapoor</div><div class="review-role">Software Engineer · Bangalore</div></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"Within a month, recruiters from top MNCs started reaching out. Absolutely worth it."</p>
+        <div class="review-author"><div class="avatar-ring"><div class="avatar-inner">PS</div></div><div><div class="review-name">Priya Sharma</div><div class="review-role">Marketing Manager · Delhi</div></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"The portfolio template made my work look 10x more professional."</p>
+        <div class="review-author"><div class="avatar-ring"><div class="avatar-inner">RV</div></div><div><div class="review-name">Rohit Verma</div><div class="review-role">Graphic Designer · Pune</div></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"Fast delivery, amazing quality, understood exactly what I needed."</p>
+        <div class="review-author"><div class="avatar-ring"><div class="avatar-inner">NS</div></div><div><div class="review-name">Neha Singh</div><div class="review-role">HR Executive · Mumbai</div></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"My executive profile now looks as good as the role I am applying for."</p>
+        <div class="review-author"><div class="avatar-ring"><div class="avatar-inner">VK</div></div><div><div class="review-name">Vikram Kumar</div><div class="review-role">Operations Director · Hyderabad</div></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-quote">"CVLoom rewrote my cover letter and I got a callback within 3 days."</p>
+        <div class="review-author"><div class="avatar-ring"><div class="avatar-inner">SA</div></div><div><div class="review-name">Sneha Agarwal</div><div class="review-role">Finance Analyst · Noida</div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner" data-reveal="up">
+      <div>
+        <span class="kicker">Ready to begin?</span>
+        <h2>Build the career identity you deserve.</h2>
+        <p>Join 500+ professionals who upgraded their presence and started landing better opportunities.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn--primary" href="contact.html">Start your project</a>
+        <a class="btn btn--ghost" href="pricing.html">View pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-logo" aria-hidden="true">
+            <img src="assets/logo.svg" alt="CVLoom logo"
+                 style="width:100%;height:100%;object-fit:contain;border-radius:.85rem;"
+                 onerror="this.style.display='none';this.parentElement.textContent='CV'">
+          </span>
+          <span>
+            <span class="brand-name">CVLoom</span>
+            <span class="brand-sub">Career Identity Studio</span>
+          </span>
+        </a>
+        <p>Premium career branding for professionals who want to be seen, chosen, and remembered.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="about.html">About</a>
+        <a href="templates.html">Templates</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:infocvloom@gmail.com">infocvloom@gmail.com</a>
+        <a href="tel:+918303616656">+9183036 16656</a>
+        <a href="https://wa.me/918303616656" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#">Lucknow, UP, India</a>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="color:var(--c-muted);font-size:var(--t-sm);margin-bottom:.5rem">Get templates and career branding tips.</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Your email">
+          <button class="btn btn--primary btn--sm" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CVLoom. All rights reserved.</span>
+      <span>Designed for world-class career branding.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

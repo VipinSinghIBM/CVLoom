@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVLoom — The Storyteller</title>
+  <meta name="description" content="The Storyteller — a warm editorial magazine portfolio template for CVLoom." />
+  <meta name="theme-color" content="#fdf8f2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Playfair+Display+SC:wght@400&family=Lora:wght@400;500;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"]{
+      --bg:#fdf8f2;
+      --surface:#fff;
+      --card:#f5ede0;
+      --accent:#c06030;
+      --accent2:#3a8068;
+      --text:#201408;
+      --muted:#706050;
+      --line:rgba(32,20,8,.12);
+      --paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      --shadow:0 14px 34px rgba(32,20,8,.06);
+      --hero-1:
+        linear-gradient(180deg, rgba(27,18,12,.16), rgba(27,18,12,.5)),
+        radial-gradient(circle at 20% 18%, rgba(232,147,90,.52), transparent 24%),
+        radial-gradient(circle at 78% 32%, rgba(125,191,160,.38), transparent 28%),
+        linear-gradient(135deg,#f0e2d0 0%, #e4cfb7 40%, #d4b08f 100%);
+      --hero-2:
+        linear-gradient(180deg, rgba(27,18,12,.18), rgba(27,18,12,.52)),
+        radial-gradient(circle at 20% 16%, rgba(125,191,160,.34), transparent 24%),
+        radial-gradient(circle at 72% 20%, rgba(232,147,90,.54), transparent 26%),
+        linear-gradient(135deg,#d7c3aa 0%, #c2a385 40%, #a67e5a 100%);
+      --hero-3:
+        linear-gradient(180deg, rgba(27,18,12,.14), rgba(27,18,12,.48)),
+        radial-gradient(circle at 18% 18%, rgba(232,147,90,.46), transparent 24%),
+        radial-gradient(circle at 80% 26%, rgba(125,191,160,.28), transparent 28%),
+        linear-gradient(135deg,#e7d9c8 0%, #cdb395 38%, #a68362 100%);
+    }
+
+    [data-theme="dark"]{
+      --bg:#120e0a;
+      --surface:#1c1610;
+      --card:#261e14;
+      --accent:#e8935a;
+      --accent2:#7dbfa0;
+      --text:#f0e8dc;
+      --muted:#a09080;
+      --line:rgba(240,232,220,.12);
+      --paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      --shadow:0 18px 42px rgba(0,0,0,.24);
+      --hero-1:
+        linear-gradient(180deg, rgba(7,6,4,.14), rgba(7,6,4,.52)),
+        radial-gradient(circle at 20% 18%, rgba(232,147,90,.4), transparent 22%),
+        radial-gradient(circle at 76% 28%, rgba(125,191,160,.22), transparent 26%),
+        linear-gradient(135deg,#3a2a1c 0%, #5a3e29 42%, #7d5b3f 100%);
+      --hero-2:
+        linear-gradient(180deg, rgba(7,6,4,.16), rgba(7,6,4,.56)),
+        radial-gradient(circle at 18% 14%, rgba(125,191,160,.2), transparent 24%),
+        radial-gradient(circle at 74% 22%, rgba(232,147,90,.42), transparent 26%),
+        linear-gradient(135deg,#2f2418 0%, #4a3828 40%, #6c5440 100%);
+      --hero-3:
+        linear-gradient(180deg, rgba(7,6,4,.14), rgba(7,6,4,.54)),
+        radial-gradient(circle at 16% 18%, rgba(232,147,90,.36), transparent 24%),
+        radial-gradient(circle at 80% 22%, rgba(125,191,160,.18), transparent 28%),
+        linear-gradient(135deg,#34261d 0%, #574134 42%, #866750 100%);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Lora",serif;
+      line-height:1.78;
+      transition:background .4s ease,color .4s ease;
+      overflow-x:hidden;
+      position:relative;
+    }
+    body::before{
+      content:"";
+      position:fixed;inset:0;
+      background-image:var(--paper);
+      opacity:.9;
+      pointer-events:none;
+      z-index:-1;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea{font:inherit;color:inherit}
+    ul{list-style:none}
+    ::selection{background:rgba(192,96,48,.18)}
+    .skip-link{
+      position:absolute;left:-999px;top:8px;background:var(--accent);color:#fff;padding:12px 16px;z-index:10001
+    }
+    .skip-link:focus{left:8px}
+    .container{width:min(calc(100% - 32px),1240px);margin-inline:auto}
+    .full-bleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+    .section{
+      position:relative;
+      padding:clamp(76px,9vw,122px) 0;
+      content-visibility:auto;
+    }
+    .alt{background:var(--surface)}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .topbar{
+      border-bottom:1px solid var(--line);
+      background:var(--bg);
+    }
+    .topbar-inner{
+      min-height:40px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:1rem;
+      font-family:"DM Mono",monospace;
+      font-size:.72rem;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .topbar-center{justify-self:center}
+    .topbar-right{
+      justify-self:end;
+      display:flex;
+      gap:.75rem;
+      align-items:center;
+    }
+    .topbar-icon{
+      width:24px;height:24px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      transition:background .25s ease,color .25s ease,border-color .25s ease;
+    }
+    .topbar-icon:hover{
+      background:var(--text);
+      color:var(--bg);
+      border-color:var(--text);
+    }
+
+    .navbar{
+      border-bottom:1px solid var(--line);
+      background:var(--bg);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(8px);
+    }
+    .nav-inner{
+      min-height:74px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:1rem;
+    }
+    .nav-left{min-width:1px}
+    .nav-center{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1.4rem;
+      flex-wrap:wrap;
+      font-family:"Playfair Display SC",serif;
+      letter-spacing:.06em;
+      font-size:.95rem;
+    }
+    .nav-center a{
+      padding:.25rem 0;
+      position:relative;
+    }
+    .nav-center a::after{
+      content:"";
+      position:absolute;left:0;bottom:-.25rem;width:100%;height:1px;background:var(--accent);
+      transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+    }
+    .nav-center a:hover::after{transform:scaleX(1)}
+    .nav-right{
+      display:flex;justify-content:flex-end;align-items:center;gap:.8rem;
+      font-family:"DM Mono",monospace;font-size:.75rem;text-transform:uppercase;
+    }
+    .nav-btn,.menu-btn{
+      min-height:42px;padding:0 .9rem;
+      border:1px solid var(--line);
+      background:transparent;
+      transition:background .25s ease,color .25s ease,border-color .25s ease;
+    }
+    .nav-btn:hover,.menu-btn:hover{
+      background:var(--text);
+      color:var(--bg);
+      border-color:var(--text);
+    }
+    .menu-btn{display:none}
+
+    .mobile-menu{
+      position:fixed;inset:0;z-index:1200;
+      background:var(--card);
+      display:grid;place-items:center;
+      opacity:0;visibility:hidden;transform:translateY(-10px);
+      transition:.35s ease;
+    }
+    .mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+    .mobile-menu-content{
+      display:grid;gap:1.2rem;text-align:center
+    }
+    .mobile-menu a,.mobile-menu button{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2rem,7vw,3.4rem);
+      line-height:1;
+      background:none;border:none;color:var(--text)
+    }
+    .mobile-close{
+      position:absolute;top:20px;right:20px;width:48px;height:48px;border:1px solid var(--line);
+      display:grid;place-items:center;font-family:"DM Mono",monospace
+    }
+
+    .hero{
+      position:relative;
+      padding:0;
+      min-height:100vh;
+      overflow:hidden;
+    }
+    .hero-slide{
+      position:absolute;inset:0;
+      display:grid;
+      align-items:end;
+      opacity:0;visibility:hidden;
+      transition:opacity .8s ease,visibility .8s ease;
+      background:var(--slide-bg);
+    }
+    .hero-slide.active{opacity:1;visibility:visible}
+    .hero-slide::before{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(18,14,10,.1), rgba(18,14,10,.56));
+      z-index:0;
+    }
+    [data-theme="light"] .hero-slide::before{
+      background:linear-gradient(180deg, rgba(253,248,242,.08), rgba(32,20,8,.25));
+    }
+    .hero-content{
+      position:relative;
+      z-index:1;
+      width:min(calc(100% - 32px),1240px);
+      margin-inline:auto;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:2rem;
+      align-items:end;
+      min-height:100vh;
+      padding:150px 0 48px;
+    }
+    .cover-copy{
+      max-width:700px;
+      color:#fff;
+    }
+    [data-theme="light"] .cover-copy{color:#201408}
+    .issue{
+      font-family:"DM Mono",monospace;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:1rem;
+      color:var(--accent2);
+    }
+    .cover-title{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(3.6rem,8vw,7rem);
+      line-height:.88;
+      font-weight:900;
+      margin-bottom:1rem;
+      max-width:10ch;
+    }
+    .cover-subtitle{
+      font-size:1.1rem;
+      max-width:56ch;
+      margin-bottom:1.4rem;
+    }
+    .cover-meta{
+      display:flex;flex-wrap:wrap;gap:1rem;
+      font-family:"DM Mono",monospace;
+      font-size:.75rem;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.82);
+    }
+    [data-theme="light"] .cover-meta{color:#4b3b30}
+
+    .cover-portrait-wrap{
+      position:relative;
+      justify-self:end;
+      width:min(100%,420px);
+      aspect-ratio:4/5;
+      margin-bottom:120px;
+    }
+    .portrait-particle-frame{
+      position:relative;
+      width:100%;height:100%;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:rgba(255,255,255,.04);
+    }
+    .portrait-particle-frame img{
+      width:100%;height:100%;object-fit:cover;
+      filter:saturate(.8) sepia(.1);
+    }
+    .orbit-dot{
+      position:absolute;
+      width:10px;height:10px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(232,147,90,.12);
+      offset-path:path("M 210 20 C 360 40, 390 220, 310 360 C 240 470, 70 470, 30 290 C 0 150, 80 20, 210 20");
+      animation:orbit 10s linear infinite;
+    }
+    .orbit-dot.two{
+      background:var(--accent2);
+      animation-duration:14s;
+      animation-delay:-4s;
+      width:8px;height:8px;
+    }
+    .orbit-dot.three{
+      background:var(--accent);
+      animation-duration:12s;
+      animation-delay:-7s;
+      width:6px;height:6px;
+    }
+    @keyframes orbit{to{offset-distance:100%}}
+
+    .project-strip-wrap{
+      position:absolute;
+      left:0;right:0;bottom:0;z-index:4;
+      padding:0 0 18px;
+    }
+    .project-strip{
+      width:min(calc(100% - 32px),1240px);
+      margin-inline:auto;
+      overflow:hidden;
+      background:rgba(28,22,16,.46);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(10px);
+      padding:14px;
+    }
+    [data-theme="light"] .project-strip{
+      background:rgba(255,255,255,.52);
+      border-color:rgba(32,20,8,.08);
+    }
+    .project-track{
+      display:flex;gap:16px;width:max-content;
+      animation:stripMove 28s linear infinite;
+    }
+    .project-strip:hover .project-track{animation-play-state:paused}
+    @keyframes stripMove{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+    .project-thumb{
+      width:180px;flex:0 0 180px;cursor:pointer
+    }
+    .project-thumb figure{
+      display:grid;gap:.5rem
+    }
+    .project-thumb img,.project-placeholder{
+      width:100%;height:116px;object-fit:cover;
+      border:1px solid rgba(255,255,255,.16);
+    }
+    [data-theme="light"] .project-thumb img,
+    [data-theme="light"] .project-placeholder{
+      border-color:rgba(32,20,8,.14);
+    }
+    .project-placeholder{
+      display:grid;place-items:center;text-align:center;padding:12px;
+      font-family:"DM Mono",monospace;font-size:.72rem;color:var(--muted);background:var(--surface)
+    }
+    figcaption{
+      text-align:center;
+      font-style:italic;
+      font-size:.8rem;
+      color:rgba(255,255,255,.86);
+    }
+    [data-theme="light"] figcaption{color:var(--muted)}
+
+    .section-head{
+      display:grid;gap:.9rem;
+      margin-bottom:2rem;
+      max-width:820px;
+    }
+    .label{
+      font-family:"DM Mono",monospace;
+      font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--accent2);
+    }
+    .section-head h2{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2.4rem,4vw,4.4rem);
+      line-height:.92;
+      font-weight:900;
+    }
+    .section-head p{color:var(--muted);max-width:62ch}
+
+    .about-grid{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start;
+    }
+    .about-copy{
+      display:grid;gap:1.2rem;
+    }
+    .about-copy p{
+      font-size:1.06rem;
+      color:var(--text);
+      max-width:65ch;
+    }
+    .about-copy .lead::first-letter{
+      float:left;
+      font-family:"Playfair Display",serif;
+      font-size:4rem;
+      line-height:.82;
+      padding-right:.55rem;
+      color:var(--accent);
+      font-weight:900;
+    }
+    .pull-quote{
+      font-family:"Playfair Display",serif;
+      font-size:1.8rem;
+      font-style:italic;
+      line-height:1.35;
+      color:var(--accent);
+      padding:1rem 0;
+      max-width:20ch;
+    }
+    .about-side-image{
+      display:grid;gap:.7rem;
+    }
+    .about-side-image img{
+      width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);filter:saturate(.8) sepia(.1)
+    }
+
+    .quote-break{
+      padding:4rem 0;
+      text-align:center;
+    }
+    .quote-break blockquote{
+      font-family:"Playfair Display",serif;
+      font-size:1.8rem;
+      font-style:italic;
+      max-width:34ch;
+      margin:0 auto;
+      color:var(--accent);
+    }
+
+    .skills-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;
+    }
+    .skill-box{
+      background:var(--card);
+      border:1px solid var(--line);
+      padding:1.4rem;
+      display:grid;
+      gap:.9rem;
+      justify-items:start;
+    }
+    .skill-icon{
+      width:44px;height:44px;border:1px solid var(--line);
+      display:grid;place-items:center;
+      font-size:1.1rem;color:var(--accent2)
+    }
+    .skill-box h3{
+      font-family:"Playfair Display",serif;
+      font-size:1.2rem;
+      line-height:1.1;
+    }
+
+    .chapter-list{display:grid;gap:2rem}
+    .chapter{
+      display:grid;gap:.9rem;
+      padding-bottom:1.5rem;
+      border-bottom:1px solid var(--line);
+    }
+    .chapter h3{
+      font-family:"Playfair Display",serif;
+      font-size:2rem;
+      line-height:1;
+    }
+    .chapter p{color:var(--muted)}
+
+    .story-list{
+      display:grid;
+      gap:2rem;
+    }
+    .story-item{
+      display:grid;
+      grid-template-columns:170px 1fr;
+      gap:2rem;
+      align-items:start;
+      border-top:1px solid var(--line);
+      padding-top:1.5rem;
+    }
+    .story-meta{
+      font-family:"DM Mono",monospace;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+    .story-text h3{
+      font-family:"Playfair Display",serif;
+      font-size:1.8rem;
+      margin-bottom:.6rem;
+    }
+    .story-text p{color:var(--text)}
+
+    .spread-list{
+      display:grid;
+      gap:3rem;
+    }
+    .spread{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:center;
+    }
+    .spread:nth-child(even) .spread-image{order:2}
+    .spread:nth-child(even) .spread-copy{order:1}
+    .spread-image figure{display:grid;gap:.55rem}
+    .spread-image img{
+      width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);filter:saturate(.85) sepia(.08)
+    }
+    .spread-copy h3{
+      font-family:"Playfair Display",serif;
+      font-size:2.2rem;
+      line-height:1;
+      margin-bottom:.9rem;
+    }
+    .spread-copy p{color:var(--muted);margin-bottom:1rem}
+    .spread-meta{
+      font-family:"DM Mono",monospace;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--accent2);
+      display:flex;flex-wrap:wrap;gap:1rem;
+    }
+
+    .testimonial-stage{
+      min-height:240px;
+      display:grid;
+      align-items:center;
+    }
+    .testimonial-slide{
+      display:none;
+      text-align:center;
+    }
+    .testimonial-slide.active{display:block}
+    .testimonial-slide blockquote{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2rem,4.4vw,4rem);
+      line-height:1.05;
+      font-style:italic;
+      max-width:18ch;
+      margin:0 auto 1rem;
+    }
+    .testimonial-slide footer{
+      font-family:"DM Mono",monospace;
+      font-size:.76rem;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .achievement-wrap{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;
+    }
+    .achievement{
+      background:var(--card);
+      border:1px solid var(--line);
+      padding:1.5rem;
+      display:grid;gap:.8rem
+    }
+    .achievement h3{
+      font-family:"Playfair Display",serif;
+      font-size:1.6rem;
+      line-height:1.05;
+    }
+    .achievement p{color:var(--muted)}
+
+    .refs-grid{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;
+    }
+    .ref-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      padding:1.2rem;
+      display:grid;
+      gap:1rem;
+    }
+    .ref-top{
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:1rem;
+      align-items:center;
+    }
+    .ref-photo{
+      width:72px;height:72px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      display:grid;place-items:center;
+      color:var(--muted);
+      font-family:"DM Mono",monospace;
+      font-size:.68rem;
+    }
+    .ref-card h3{
+      font-family:"Playfair Display",serif;
+      font-size:1.4rem;
+      line-height:1;
+    }
+    .ref-card p{color:var(--muted);font-size:.96rem}
+
+    .contact-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+    }
+    .contact-panel{
+      background:var(--card);
+      border:1px solid var(--line);
+      padding:1.5rem;
+    }
+    .contact-panel h3{
+      font-family:"Playfair Display",serif;
+      font-size:2rem;
+      line-height:1;
+      margin-bottom:.8rem;
+    }
+    .contact-panel p{color:var(--muted)}
+    .contact-links{
+      display:grid;gap:.8rem;margin-top:1.2rem
+    }
+    .contact-links a{
+      min-height:48px;padding:0 14px;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:1rem
+    }
+    .contact-links a:hover{
+      background:var(--text);
+      color:var(--bg);
+      border-color:var(--text);
+    }
+    .contact-form{
+      display:grid;gap:1rem;margin-top:1rem
+    }
+    .contact-form label{
+      display:grid;gap:.45rem;color:var(--muted)
+    }
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:14px 16px;background:var(--surface);color:var(--text);
+      border:1px solid var(--line);outline:none
+    }
+    .contact-form textarea{min-height:150px;resize:vertical}
+    .contact-submit{
+      width:max-content;min-height:46px;padding:0 16px;border:1px solid var(--line)
+    }
+    .contact-submit:hover{
+      background:var(--text);color:var(--bg);border-color:var(--text)
+    }
+
+    .site-footer{
+      border-top:1px solid var(--line);
+      padding:2rem 0 110px;
+    }
+    .footer-inner{
+      display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+      font-family:"DM Mono",monospace;font-size:.72rem;text-transform:uppercase;color:var(--muted)
+    }
+
+    .fab-stack{
+      position:fixed;right:24px;bottom:24px;z-index:9999;
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .fab{
+      position:relative;width:52px;height:52px;border-radius:50%;
+      display:grid;place-items:center;
+      box-shadow:0 10px 22px rgba(0,0,0,.18);
+      transform:translateX(90px);
+      animation:fabIn .7s cubic-bezier(.16,1,.3,1) forwards;
+      transition:transform .25s ease, box-shadow .25s ease;
+      border:1px solid rgba(0,0,0,.08);
+    }
+    .fab.whatsapp{background:#25D366;animation-delay:1s}
+    .fab.call{background:var(--accent);animation-delay:1.12s}
+    .fab.email{background:var(--accent2);animation-delay:1.24s}
+    @keyframes fabIn{to{transform:translateX(0)}}
+    .fab:hover{transform:scale(1.15)}
+    .fab.whatsapp:hover{box-shadow:0 4px 20px rgba(37,211,102,0.5)}
+    .fab.call:hover{box-shadow:0 4px 20px color-mix(in srgb, var(--accent) 55%, transparent)}
+    .fab.email:hover{box-shadow:0 4px 20px color-mix(in srgb, var(--accent2) 55%, transparent)}
+    .fab svg{width:22px;height:22px;color:#fff}
+    .fab::after{
+      content:attr(data-tooltip);
+      position:absolute;right:64px;top:50%;transform:translateY(-50%) translateX(10px);
+      white-space:nowrap;background:var(--surface);color:var(--text);
+      border:1px solid var(--line);padding:8px 10px;font-size:.74rem;border-radius:999px;
+      opacity:0;visibility:hidden;transition:.25s ease;pointer-events:none
+    }
+    .fab:hover::after{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
+    .fab.whatsapp{
+      animation-name:fabIn, waPulse;
+      animation-duration:.7s,4s;
+      animation-delay:1s,2.4s;
+      animation-fill-mode:forwards,both;
+      animation-iteration-count:1,infinite;
+    }
+    @keyframes waPulse{
+      0%,84%,100%{box-shadow:0 10px 22px rgba(0,0,0,.18),0 0 0 0 rgba(37,211,102,0)}
+      90%{box-shadow:0 10px 22px rgba(0,0,0,.18),0 0 0 0 rgba(37,211,102,.42)}
+      97%{box-shadow:0 10px 22px rgba(0,0,0,.18),0 0 0 16px rgba(37,211,102,0)}
+    }
+
+    .mobile-bottom-bar{
+      display:none;
+      position:fixed;left:0;right:0;bottom:0;z-index:9998;
+      background:var(--surface);
+      border-top:1px solid var(--line);
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+      grid-template-columns:repeat(3,1fr);gap:10px;
+    }
+    .mobile-bottom-bar a{
+      min-height:52px;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      font-family:"DM Mono",monospace;font-size:.68rem;text-transform:uppercase;
+      background:var(--card)
+    }
+    .mobile-bottom-bar .wa{color:#25D366}
+    .mobile-bottom-bar .call{color:var(--accent)}
+    .mobile-bottom-bar .email{color:var(--accent2)}
+    .mobile-bottom-bar svg{width:18px;height:18px}
+
+    .lightbox{
+      position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10001;
+      display:grid;place-items:center;padding:24px;
+      opacity:0;visibility:hidden;transition:opacity .3s ease, visibility .3s ease;
+    }
+    .lightbox.open{opacity:1;visibility:visible}
+    .lightbox img{
+      max-width:min(92vw,1100px);max-height:78vh;border:1px solid rgba(255,255,255,.16);object-fit:contain
+    }
+    .lightbox-close{
+      position:absolute;top:20px;right:20px;width:48px;height:48px;border:1px solid rgba(255,255,255,.24);color:#fff
+    }
+
+    .reveal{
+      opacity:0;transform:translateY(28px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in-view{opacity:1;transform:none}
+
+    @media (max-width:1080px){
+      .hero-content,
+      .about-grid,
+      .spread,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+      .skills-grid,.achievement-wrap,.refs-grid{grid-template-columns:repeat(2,1fr)}
+      .cover-portrait-wrap{justify-self:start;margin-bottom:140px}
+      .story-item{grid-template-columns:1fr}
+    }
+
+    @media (max-width:860px){
+      .nav-center,.nav-right .nav-btn{display:none}
+      .menu-btn{display:inline-flex}
+      .nav-inner{grid-template-columns:1fr auto 1fr}
+      .nav-right{justify-content:flex-end}
+      .hero-content{padding-top:130px}
+      .cover-title{max-width:11ch}
+      .topbar-inner{grid-template-columns:1fr auto}
+      .topbar-center{display:none}
+    }
+
+    @media (max-width:767px){
+      .fab-stack{display:none}
+      .mobile-bottom-bar{display:grid}
+      .skills-grid,.achievement-wrap,.refs-grid{grid-template-columns:1fr}
+      .cover-portrait-wrap{width:min(100%,320px);margin-bottom:170px}
+      .project-strip-wrap{padding-bottom:12px}
+      .project-strip{width:min(calc(100% - 24px),1240px)}
+      .project-thumb{width:154px;flex-basis:154px}
+      .project-thumb img,.project-placeholder{height:98px}
+      .cover-title{font-size:clamp(3rem,14vw,4.6rem)}
+      .quote-break{padding:2rem 0}
+      .site-footer{padding-bottom:100px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+      }
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div>June 01, 2026</div>
+        <div class="topbar-center">CVLoom Portfolio</div>
+        <div class="topbar-right">
+          <a href="#" class="topbar-icon" aria-label="Instagram">◎</a>
+          <a href="#" class="topbar-icon" aria-label="LinkedIn">in</a>
+          <a href="#" class="topbar-icon" aria-label="X">×</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar" aria-label="Primary navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-left"></div>
+
+        <div class="nav-center">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#references">References</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-right">
+          <button class="nav-btn" type="button" data-theme-toggle>Theme</button>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <div class="mobile-menu-content">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Voices</a>
+      <a href="#achievements">Moments</a>
+      <a href="#references">References</a>
+      <a href="#contact">Contact</a>
+      <button type="button" data-theme-toggle-mobile>Theme</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero full-bleed">
+      <article class="hero-slide active" style="--slide-bg:var(--hero-1)">
+        <div class="hero-content">
+          <div class="cover-copy">
+            <div class="issue">Issue 01 / The Storyteller</div>
+            <h1 class="cover-title">Telling human stories with warmth and witness.</h1>
+            <p class="cover-subtitle">A magazine-inspired portfolio for NGO professionals, writers, journalists, social workers, and people whose work is grounded in listening, field experience, and narrative care.</p>
+            <div class="cover-meta">
+              <span>Words by Your Name</span>
+              <span>Work since 2018</span>
+              <span>Editorial Portfolio</span>
+            </div>
+          </div>
+
+          <div class="cover-portrait-wrap">
+            <div class="portrait-particle-frame">
+              <!-- PORTRAIT IMAGE 1,2,3: replace src with actual photos -->
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Portrait image" width="900" height="1125" loading="eager">
+              <span class="orbit-dot"></span>
+              <span class="orbit-dot two"></span>
+              <span class="orbit-dot three"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-strip-wrap">
+          <div class="project-strip">
+            <div class="project-track">
+              <!-- PROJECT STRIP IMAGE: replace src="" with actual photo path -->
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb">
+                <figure>
+                  <div class="project-placeholder">📸 Add Work Photo</div>
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb">
+                <figure>
+                  <div class="project-placeholder">📸 Add Work Photo</div>
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hero-slide" style="--slide-bg:var(--hero-2)">
+        <div class="hero-content">
+          <div class="cover-copy">
+            <div class="issue">Issue 02 / Narrative Work</div>
+            <h2 class="cover-title">Field notes, long walks, and the patient work of witness.</h2>
+            <p class="cover-subtitle">An editorial structure shaped for people whose portfolios are made of encounters, communities, reporting, listening, and the slow building of trust.</p>
+            <div class="cover-meta">
+              <span>Words by Your Name</span>
+              <span>Essays & Projects</span>
+              <span>Cover Story</span>
+            </div>
+          </div>
+
+          <div class="cover-portrait-wrap">
+            <div class="portrait-particle-frame">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Portrait image slide two" width="900" height="1125" loading="lazy">
+              <span class="orbit-dot"></span>
+              <span class="orbit-dot two"></span>
+              <span class="orbit-dot three"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-strip-wrap">
+          <div class="project-strip">
+            <div class="project-track">
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb">
+                <figure>
+                  <div class="project-placeholder">📸 Add Work Photo</div>
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb">
+                <figure>
+                  <div class="project-placeholder">📸 Add Work Photo</div>
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hero-slide" style="--slide-bg:var(--hero-3)">
+        <div class="hero-content">
+          <div class="cover-copy">
+            <div class="issue">Issue 03 / Human Stories</div>
+            <h2 class="cover-title">Work shaped by place, people, and attention.</h2>
+            <p class="cover-subtitle">This layout leaves room for voice, context, texture, and the slower rhythm of narrative portfolios that feel closer to an editorial feature than a résumé.</p>
+            <div class="cover-meta">
+              <span>Magazine Layout</span>
+              <span>Full-Bleed Storytelling</span>
+              <span>Warm Tones</span>
+            </div>
+          </div>
+
+          <div class="cover-portrait-wrap">
+            <div class="portrait-particle-frame">
+              <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80" alt="Portrait image slide three" width="900" height="1125" loading="lazy">
+              <span class="orbit-dot"></span>
+              <span class="orbit-dot two"></span>
+              <span class="orbit-dot three"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-strip-wrap">
+          <div class="project-strip">
+            <div class="project-track">
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb">
+                <figure>
+                  <div class="project-placeholder">📸 Add Work Photo</div>
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Project Name" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb">
+                <figure>
+                  <div class="project-placeholder">📸 Add Work Photo</div>
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+              <div class="project-thumb" data-full="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80">
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Project Name duplicate" width="600" height="400" loading="lazy">
+                  <figcaption>Project Name</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section reveal" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Words by Your Name</span>
+          <h2>About the work behind the byline.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p class="lead">Much of the work I care about begins with listening. Long before a report is written, a story edited, or a field project documented, there is the slower work of arrival: learning how people describe their own worlds and noticing what cannot be captured by a summary alone.</p>
+
+            <p>I have built a practice around patient storytelling—bringing together observation, reporting, research, and human-centered communication so that institutions, communities, and collaborators can be represented with dignity and clarity. This portfolio is designed to hold that kind of work: textured, grounded, and deliberately paced.</p>
+
+            <div class="pull-quote">“The strongest stories do not shout. They stay with us because they make room for another life to fully appear.”</div>
+
+            <p>Whether the project is social impact writing, field reporting, documentary communication, community outreach, or editorial storytelling, I am most interested in work that treats attention as a form of care.</p>
+          </div>
+
+          <figure class="about-side-image">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80" alt="Community-focused editorial image" width="1000" height="1200" loading="lazy">
+            <figcaption>Field moments often begin with quiet observation before they become public narratives.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-break full-bleed alt reveal">
+      <div class="container">
+        <blockquote>“Narrative work asks for patience: the courage to remain with complexity until it becomes legible.”</blockquote>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Practice areas</span>
+          <h2>A human skill set, named simply.</h2>
+          <p>Rather than technical percentages, this section presents modes of work—skills shaped by experience, listening, and relationship.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-box">
+            <div class="skill-icon">✍</div>
+            <h3>Long-form Writing</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">◌</div>
+            <h3>Community Listening</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">⌘</div>
+            <h3>Editorial Research</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">◎</div>
+            <h3>Field Documentation</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">✦</div>
+            <h3>Story Development</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">⟡</div>
+            <h3>Interview Design</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">☉</div>
+            <h3>NGO Communication</h3>
+          </article>
+          <article class="skill-box">
+            <div class="skill-icon">↺</div>
+            <h3>Advocacy Narratives</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt reveal" id="education">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Chapters</span>
+          <h2>Education as a set of beginnings.</h2>
+        </div>
+
+        <div class="chapter-list">
+          <article class="chapter">
+            <h3>Chapter 1: The Beginning</h3>
+            <p>A foundational education in literature, social thought, and public communication introduced the long-form instincts that would later shape field reporting and narrative research.</p>
+          </article>
+
+          <article class="chapter">
+            <h3>Chapter 2: Learning to Listen</h3>
+            <p>Postgraduate study deepened the relationship between analysis and empathy, especially in the contexts of policy, human development, and community-centered work.</p>
+          </article>
+
+          <article class="chapter">
+            <h3>Chapter 3: The Ongoing Practice</h3>
+            <p>Workshops, field immersion, editorial training, and independent inquiry continue to shape the way stories are held, structured, and shared.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Work since 2018</span>
+          <h2>A timeline told as short stories.</h2>
+        </div>
+
+        <div class="story-list">
+          <article class="story-item">
+            <div class="story-meta">2024 — Present<br>Lead Narrative Consultant</div>
+            <div class="story-text">
+              <h3>Working close to communities, but writing for decision-makers.</h3>
+              <p>The role has required a careful balance: staying near real lives while translating experience into reports, essays, and strategic narratives that institutions can hear. Much of the work has involved listening first, then slowly shaping material that remains faithful to the people at its center.</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-meta">2021 — 2024<br>Editorial Research Associate</div>
+            <div class="story-text">
+              <h3>Where reporting met structure.</h3>
+              <p>These years were spent building editorial discipline—fact-checking, interviewing, drafting, revising, and learning how a large story becomes readable without losing its human stakes. It was an education in pace as much as in prose.</p>
+            </div>
+          </article>
+
+          <article class="story-item">
+            <div class="story-meta">2018 — 2021<br>Program Communications Writer</div>
+            <div class="story-text">
+              <h3>Learning how institutions speak, and how people actually do.</h3>
+              <p>By writing across outreach material, field notes, internal summaries, and public communication, I began to understand the tension between official language and lived experience—and how narrative can gently close that distance.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-break full-bleed reveal">
+      <div class="container">
+        <blockquote>“Good narrative work does not simplify people. It creates enough space for their contradictions to remain intact.”</blockquote>
+      </div>
+    </section>
+
+    <section class="section alt reveal" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Selected spreads</span>
+          <h2>Projects arranged like magazine features.</h2>
+          <p>Each project pairs image and text in alternating spreads to create a slower, editorial rhythm.</p>
+        </div>
+
+        <div class="spread-list">
+          <article class="spread">
+            <div class="spread-image">
+              <figure>
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Community storytelling project" width="1200" height="900" loading="lazy">
+                <figcaption>A field-led documentation project focused on community memory and local voices.</figcaption>
+              </figure>
+            </div>
+            <div class="spread-copy">
+              <h3>Listening as method.</h3>
+              <p>A documentary-style communication project built around oral histories, observation notes, and collaborative story shaping with local participants.</p>
+              <div class="spread-meta">
+                <span>Community Work</span>
+                <span>Writing</span>
+                <span>Field Notes</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="spread">
+            <div class="spread-image">
+              <figure>
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="NGO reporting project" width="1200" height="900" loading="lazy">
+                <figcaption>Editorial reporting created to help an NGO communicate impact without flattening experience.</figcaption>
+              </figure>
+            </div>
+            <div class="spread-copy">
+              <h3>An impact report with a human center.</h3>
+              <p>This project transformed field data, interviews, and community encounters into a warm, accessible narrative report for partners and donors.</p>
+              <div class="spread-meta">
+                <span>NGO</span>
+                <span>Impact Writing</span>
+                <span>Editorial</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="spread">
+            <div class="spread-image">
+              <figure>
+                <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=80" alt="Journalistic feature project" width="1200" height="900" loading="lazy">
+                <figcaption>A long-form feature exploring place, displacement, and the language people use to rebuild belonging.</figcaption>
+              </figure>
+            </div>
+            <div class="spread-copy">
+              <h3>A feature shaped by place.</h3>
+              <p>Part essay, part reported piece, this project brought together interviews, environmental observation, and narrative pacing inspired by print magazines.</p>
+              <div class="spread-meta">
+                <span>Feature Writing</span>
+                <span>Journalism</span>
+                <span>Essay</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Voices</span>
+          <h2>What collaborators say.</h2>
+        </div>
+
+        <div class="testimonial-stage">
+          <article class="testimonial-slide active">
+            <blockquote>“The work carried empathy without losing precision. It felt deeply human and editorially mature at the same time.”</blockquote>
+            <footer>Program Director / Social Impact Initiative</footer>
+          </article>
+
+          <article class="testimonial-slide">
+            <blockquote>“There was patience in every draft. Nothing felt rushed or extracted; the writing made space for people to remain fully themselves.”</blockquote>
+            <footer>Editor / Independent Magazine</footer>
+          </article>
+
+          <article class="testimonial-slide">
+            <blockquote>“What stood out most was tone—the rare ability to write with warmth, dignity, and narrative clarity without ever becoming sentimental.”</blockquote>
+            <footer>Communications Lead / NGO Network</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt reveal" id="achievements">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">My proudest moments</span>
+          <h2>The moments I return to most. ✨</h2>
+          <p>Not every meaningful milestone is numerical. Some are remembered because of the people, the courage, or the care they asked for.</p>
+        </div>
+
+        <div class="achievement-wrap">
+          <article class="achievement">
+            <h3>📝 A report that read like a story</h3>
+            <p>Created an impact document that partners actually wanted to read—not because it was simplified, but because it was made human.</p>
+          </article>
+
+          <article class="achievement">
+            <h3>🌍 Time spent in the field</h3>
+            <p>Built trust across long conversations, site visits, and observation-led work that could not have been written from a desk alone.</p>
+          </article>
+
+          <article class="achievement">
+            <h3>🤝 Collaborative writing that felt shared</h3>
+            <p>Worked with communities and teams in ways that made the final narrative feel collective rather than extracted.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="references">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">References</span>
+          <h2>People who know the work closely.</h2>
+        </div>
+
+        <div class="refs-grid">
+          <article class="ref-card">
+            <div class="ref-top">
+              <div class="ref-photo">Photo</div>
+              <div>
+                <h3>Riya Sharma</h3>
+                <p>Program Lead</p>
+              </div>
+            </div>
+            <p>Worked together on multi-stakeholder storytelling and field-based communication outputs across community projects.</p>
+          </article>
+
+          <article class="ref-card">
+            <div class="ref-top">
+              <div class="ref-photo">Photo</div>
+              <div>
+                <h3>Aarav Mehta</h3>
+                <p>Editor</p>
+              </div>
+            </div>
+            <p>Collaborated on editorial development, feature writing, and long-form narrative shaping with strong attention to voice.</p>
+          </article>
+
+          <article class="ref-card">
+            <div class="ref-top">
+              <div class="ref-photo">Photo</div>
+              <div>
+                <h3>Nikita Rao</h3>
+                <p>Communications Advisor</p>
+              </div>
+            </div>
+            <p>Can speak to strategic writing, report building, and the balance between institutional communication and human storytelling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt reveal" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Reach out</span>
+          <h2>For stories, collaborations, and meaningful work.</h2>
+          <p>This section is built for editorial commissions, NGO communication, writing projects, partnerships, and field-based storytelling work.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-panel">
+            <h3>Contact</h3>
+            <p>A warm, direct route for editors, organizations, collaborators, and project leads.</p>
+
+            <div class="contact-links">
+              <a href="mailto:your@email.com"><span>Email</span><strong>your@email.com</strong></a>
+              <a href="tel:+91XXXXXXXXXX"><span>Call</span><strong>+91 XXXXX XXXXX</strong></a>
+              <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Start a conversation</strong></a>
+            </div>
+          </article>
+
+          <section class="contact-panel">
+            <h3>Write a brief</h3>
+            <form class="contact-form">
+              <label>
+                Name
+                <input type="text" placeholder="Your name">
+              </label>
+              <label>
+                Email
+                <input type="email" placeholder="you@example.com">
+              </label>
+              <label>
+                Project
+                <textarea placeholder="Tell me about the story, organization, or collaboration."></textarea>
+              </label>
+              <button type="submit" class="contact-submit">Send inquiry</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>CVLoom / The Storyteller</span>
+        <span>Editorial Magazine Layout</span>
+        <span>Warm Earth Tones</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab-stack" aria-label="Quick actions">
+    <a class="fab whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" data-tooltip="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.94A9.86 9.86 0 0 0 12.01 2C6.5 2 2.02 6.48 2.02 11.99c0 1.76.46 3.48 1.33 5L2 22l5.14-1.34a9.9 9.9 0 0 0 4.86 1.24h.01c5.51 0 9.99-4.48 9.99-10 0-2.67-1.04-5.18-2.95-7.06Zm-7.04 15.27h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.05.8.81-2.98-.2-.31a8.22 8.22 0 0 1-1.26-4.39c0-4.53 3.68-8.22 8.22-8.22 2.2 0 4.26.85 5.82 2.41a8.18 8.18 0 0 1 2.4 5.82c0 4.54-3.69 8.22-8.23 8.22Zm4.51-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.56.13-.17.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04s.88 2.37 1 2.53c.12.17 1.73 2.64 4.19 3.7.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29Z"/></svg>
+    </a>
+    <a class="fab call" href="tel:+91XXXXXXXXXX" data-tooltip="Call Me" aria-label="Call Me">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.06 9.94a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <a class="fab email" href="mailto:your@email.com" data-tooltip="Send Email" aria-label="Send Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 7-10 7L2 7"/></svg>
+    </a>
+  </div>
+
+  <div class="mobile-bottom-bar" aria-label="Mobile contact actions">
+    <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="wa" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.94A9.86 9.86 0 0 0 12.01 2C6.5 2 2.02 6.48 2.02 11.99c0 1.76.46 3.48 1.33 5L2 22l5.14-1.34a9.9 9.9 0 0 0 4.86 1.24h.01c5.51 0 9.99-4.48 9.99-10 0-2.67-1.04-5.18-2.95-7.06Zm-7.04 15.27h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.05.8.81-2.98-.2-.31a8.22 8.22 0 0 1-1.26-4.39c0-4.53 3.68-8.22 8.22-8.22 2.2 0 4.26.85 5.82 2.41a8.18 8.18 0 0 1 2.4 5.82c0 4.54-3.69 8.22-8.23 8.22Z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+91XXXXXXXXXX" class="call" aria-label="Call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.67 2.63a2 2 0 0 1-.45 2.11L8.06 9.94a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.84.33 1.73.55 2.63.67A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call</span>
+    </a>
+    <a href="mailto:your@email.com" class="email" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 7-10 7L2 7"/></svg>
+      <span>Email</span>
+    </a>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Project preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">✕</button>
+    <img src="" alt="Expanded project preview" id="lightboxImage">
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const body = document.body;
+    const themeBtns = [
+      document.querySelector('[data-theme-toggle]'),
+      document.querySelector('[data-theme-toggle-mobile]')
+    ].filter(Boolean);
+
+    let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+    function applyTheme(mode){
+      body.setAttribute('data-theme', mode);
+      root.setAttribute('data-theme', mode);
+      themeBtns.forEach(btn => btn.textContent = mode === 'dark' ? 'Light' : 'Dark');
+    }
+    applyTheme(theme);
+
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        applyTheme(theme);
+      });
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    });
+
+    mobileClose?.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    const heroSlides = [...document.querySelectorAll('.hero-slide')];
+    let heroIndex = 0;
+    setInterval(() => {
+      heroSlides[heroIndex].classList.remove('active');
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      heroSlides[heroIndex].classList.add('active');
+    }, 5600);
+
+    const testimonialSlides = [...document.querySelectorAll('.testimonial-slide')];
+    let testimonialIndex = 0;
+    setInterval(() => {
+      testimonialSlides[testimonialIndex].classList.remove('active');
+      testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
+      testimonialSlides[testimonialIndex].classList.add('active');
+    }, 5000);
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.14});
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.project-thumb[data-full]').forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImage.src = item.dataset.full;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+      });
+    });
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImage.src = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) closeLightbox();
+    });
+    window.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeLightbox();
+    });
+
+    document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const original = btn.textContent;
+      btn.textContent = 'Sent';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        e.target.reset();
+      }, 2200);
+    });
+  </script>
+</body>
+</html>
+

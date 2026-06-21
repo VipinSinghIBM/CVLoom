@@ -16,7 +16,7 @@ jobs:
     - name: 📂 Sync files to Serverbyt
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.stackcp.com
+        server: ftp.gb.cvloom.online
         username: cvloom.online
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /public_html/
